@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Xaringan</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Garth Tarr" />
+    <meta name="date" content="2018-05-15" />
+    <link href="index_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="index_files/font-awesome-5.0.12/css/fontawesome-all.min.css" rel="stylesheet" />
+    <script src="index_files/htmlwidgets-1.2/htmlwidgets.js"></script>
+    <script src="index_files/jquery-1.12.4/jquery.min.js"></script>
+    <link href="index_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="index_files/datatables-binding-0.4/datatables.js"></script>
+    <link href="index_files/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="index_files/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="index_files/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="index_files/jszip-1.10.16/jszip.min.js"></script>
+    <link href="index_files/dt-ext-buttons-1.10.16/css/buttons.dataTables.min.css" rel="stylesheet" />
+    <script src="index_files/dt-ext-buttons-1.10.16/js/dataTables.buttons.min.js"></script>
+    <script src="index_files/dt-ext-buttons-1.10.16/js/buttons.flash.min.js"></script>
+    <script src="index_files/dt-ext-buttons-1.10.16/js/buttons.html5.min.js"></script>
+    <script src="index_files/dt-ext-buttons-1.10.16/js/buttons.colVis.min.js"></script>
+    <script src="index_files/dt-ext-buttons-1.10.16/js/buttons.print.min.js"></script>
+    <link href="index_files/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+    <script src="index_files/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+    <link rel="stylesheet" href="assets/sydney-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="assets/sydney.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Xaringan
+## A theme for the <br>University of Sydney
+### Garth Tarr
+### 15 May 2018
+
+---
+
+
+## Installing
+
+The **xaringan** package is on CRAN, but I recommend installing the development release from <i class="fab  fa-github "></i>
+
+
+```r
+devtools::install_github('yihui/xaringan')
+```
+
+You will also need two other CSS files for the custom University of Sydney styling:
+
+- `sydney-fonts.css`
+- `sydney.css`
+
+If you want the University Logo to show up on the title slide, you'll also need
+
+- `USydLogo-black.svg`
+
+in the same folder as your CSS files.
+
+These are available in the assets folder of the GitHub code repository [<i class="fab  fa-github "></i> `garthtarr/sydney_xaringan`](http://github.com/garthtarr/sydney_xaringan/assets)
+
+To make things easy to get started, I recommend downloading a copy of the `sydney_xaringan` repo [<i class="fas  fa-file-archive "></i>](https://github.com/garthtarr/sydney_xaringan/archive/master.zip) and starting by customising the example file in there. 
+
+---
+
+## Why xaringan/remark.js? 
+
+- I was a big **ioslides** fan
+
+- Printing (in Google Chrome) is a lot more reliable for xaringan/remark.js
+
+- The customisation of the CSS and using it is a lot easier in xaringan/remark.js
+
+- You almost never need to write any manual HTML chunks (e.g. `&lt;div style="text-align: center;"&gt;&lt;/div&gt;`)
+
+- With remark.js' Markdown, you can add arbitrary CSS classes to elements using syntax `.className[elements]`, which is very handy compared to `&lt;span class="className"&gt;&lt;/span&gt;`
+
+- You can write slide notes under three question marks `???`. These notes are only displayed in the presentation mode, and only the speaker can see these notes. 
+
+- The keyboard shortcuts: press keys like `P` (presentation mode), `C` (clone slides to a new window, useful for presentation mode), `B` (black out), `M` (mirror the slide), and `H` (help), etc.
+
+More: [yihui.name/en/2017/08/why-xaringan-remark-js/](https://yihui.name/en/2017/08/why-xaringan-remark-js/)
+
+---
+
+## Why not xaringan/remark.js? 
+
+- It is difficult to generate self-contained HTML presentation files.
+
+- You can't embed shiny apps (easily) and not all htemlwidgets are guaranteed to work.
+
+- I have a lot of ioslides and beamer content... but it's not so hard to translate from ioslides to xaringan (beamer's another story).
+
+
+
+---
+
+## Content boxes
+
+.content-box-blue[This is a `.content-box-blue[]` chunk. Content boxes are pretty flexible and can include lists, for example:
+
+- point 1
+- point 2 
+
+]
+
+--
+
+If you have just a few words, it only highlights the words:
+
+.pull-left[
+.content-box-army[`.content-box-army[]`]
+
+.content-box-yellow[`.content-box-yellow[]`]
+]
+.pull-right[
+.content-box-red[`.content-box-red[]`]
+
+.content-box-purple[`.content-box-purple[]`]
+]
+
+--
+
+If the text includes a new line character, or spans multiple lines, you get a 100% width box.  I've used `.columns-2[]` it's 100% of the column width.
+
+.columns-2[
+.content-box-gray[
+`.content-box-gray[]`
+]
+.content-box-green[
+`.content-box-green[]`
+]
+]
+
+---
+
+## Quotes
+
+We can include **block quotes** using
+
+`&lt;blockquote&gt;Quote goes here&lt;/blockquote&gt;` 
+
+or
+
+`&gt; Quote goes here`
+
+.pull-left[
+
+&lt;blockquote&gt;
+Statistics is the grammar of science. 
+.right[-- &lt;cite&gt;Karl Pearson&lt;/cite&gt;]
+&lt;/blockquote&gt;
+
+&gt; It is not the mountain we conquer 
+&gt; but ourselves.
+&gt;
+&gt; .right[-- &lt;cite&gt;Edmund Hillary&lt;/cite&gt;]
+
+]
+
+.pull-right[.small[
+
+```
+&lt;blockquote&gt;
+Statistics is the grammar of science. 
+.right[-- &lt;cite&gt;Karl Pearson&lt;/cite&gt;]
+&lt;/blockquote&gt;
+
+
+
+
+&gt; It is not the mountain we conquer 
+&gt; but ourselves.
+&gt;
+&gt; .right[-- &lt;cite&gt;Edmund Hillary&lt;/cite&gt;]
+```
+
+]]
+
+---
+
+## Lists, increments and footnotes<i class="fas  fa-list fa-pull-right "></i>
+
+.pull-left[
+
+- Unordered lists&lt;sup&gt;1&lt;/sup&gt;
+  - can be created using "-"
+  - and they can be nested using 2 or 4 space.fn[2]
+      - deep nested 
+  - original nesting level
+
+
+### Ordered list
+
+1. one
+2. two 
+3. three
+
+
+
+]
+
+
+
+--
+
+.pull-right[
+
+#### Incrementing
+
+To get an incremental slide use two dashes `--` on a new line with no trailing white space.
+
+If the dashes aren't on their own line or there's a white space after it won't work.
+
+.small[.content-box-purple[
+The two dash increments don't work inside class calls.  For example, you can't have an increment in a  `.pull-right[...]` block or in a `.columns-2[...]` block as the dashes are not considered to be special in the markdown processing when they're inside one of these blocks.
+]]
+
+]
+
+
+
+
+
+
+
+.footnote[
+[1] Footnotes are not automatic.  In the text use `&lt;sup&gt;1&lt;/sup&gt;` or `.fn[1]`
+
+[2] At the end of the slide `.footnote[[1] Text associated with footnote 1.]`
+]
+
+---
+
+## Icons <i class="fas  fa-exclamation fa-pull-right "></i>
+
+Perhaps the easiest way to include icons in your xaringan presentations is through the **icon** package.
+
+The **icon** package lets you include [font awesome](http://fontawesome.io), [academicons](http://jpswalsh.github.io/academicons/) and [ionicons](http://ionicons.com) into R Markdown documents.
+
+It's not yet on CRAN, so install it using 
+
+
+```r
+devtools::install_github("ropenscilabs/icon")
+```
+
+--
+
+.pull-left[
+
+
+```r
+icon::fa("rocket")
+```
+
+<i class="fas  fa-rocket "></i>
+
+```r
+icon::fa("spinner", size = 2, 
+         animate = "spin")
+```
+
+<i class="fas  fa-spinner fa-2x fa-spin "></i>
+
+]
+
+--
+
+.pull-right[
+
+In line expressions also work. 
+
+<i class="fas  fa-bell "></i> created using 
+
+`` `r icon::fa("bell")` ``
+
+
+&lt;br&gt;
+
+For more info see [the <i class="fab  fa-github "></i> repo](https://github.com/ropenscilabs/icon)
+
+]
+
+---
+class: code75
+
+
+## Data tables
+
+
+```r
+library("DT"); library("dplyr")
+iris %&gt;% 
+  DT::datatable(class = "compact", rownames = FALSE, extensions = "Buttons",
+                options = list(dom = 'tBp', buttons = c("csv","excel"), pageLength = 10)) %&gt;% 
+  DT::formatRound(1:4, digits = 1) 
+```
+
+<div id="htmlwidget-31910db0d665b2b327a4" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-31910db0d665b2b327a4">{"x":{"filter":"none","extensions":["Buttons"],"data":[[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5,7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7,6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1,3.7,3.4,3,3,4,4.4,3.9,3.5,3.8,3.8,3.4,3.7,3.6,3.3,3.4,3,3.4,3.5,3.4,3.2,3.1,3.4,4.1,4.2,3.1,3.2,3.5,3.6,3,3.4,3.5,2.3,3.2,3.5,3.8,3,3.8,3.2,3.7,3.3,3.2,3.2,3.1,2.3,2.8,2.8,3.3,2.4,2.9,2.7,2,3,2.2,2.9,2.9,3.1,3,2.7,2.2,2.5,3.2,2.8,2.5,2.8,2.9,3,2.8,3,2.9,2.6,2.4,2.4,2.7,2.7,3,3.4,3.1,2.3,3,2.5,2.6,3,2.6,2.3,2.7,3,2.9,2.9,2.5,2.8,3.3,2.7,3,2.9,3,3,2.5,2.9,2.5,3.6,3.2,2.7,3,2.5,2.8,3.2,3,3.8,2.6,2.2,3.2,2.8,2.8,2.7,3.3,3.2,2.8,3,2.8,3,2.8,3.8,2.8,2.8,2.6,3,3.4,3.1,3,3.1,3.1,3.1,2.7,3.2,3.3,3,2.5,3,3.4,3],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5,1.5,1.6,1.4,1.1,1.2,1.5,1.3,1.4,1.7,1.5,1.7,1.5,1,1.7,1.9,1.6,1.6,1.5,1.4,1.6,1.6,1.5,1.5,1.4,1.5,1.2,1.3,1.4,1.3,1.5,1.3,1.3,1.3,1.6,1.9,1.4,1.6,1.4,1.5,1.4,4.7,4.5,4.9,4,4.6,4.5,4.7,3.3,4.6,3.9,3.5,4.2,4,4.7,3.6,4.4,4.5,4.1,4.5,3.9,4.8,4,4.9,4.7,4.3,4.4,4.8,5,4.5,3.5,3.8,3.7,3.9,5.1,4.5,4.5,4.7,4.4,4.1,4,4.4,4.6,4,3.3,4.2,4.2,4.2,4.3,3,4.1,6,5.1,5.9,5.6,5.8,6.6,4.5,6.3,5.8,6.1,5.1,5.3,5.5,5,5.1,5.3,5.5,6.7,6.9,5,5.7,4.9,6.7,4.9,5.7,6,4.8,4.9,5.6,5.8,6.1,6.4,5.6,5.1,5.6,6.1,5.6,5.5,4.8,5.4,5.6,5.1,5.1,5.9,5.7,5.2,5,5.2,5.4,5.1],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1,0.2,0.2,0.1,0.1,0.2,0.4,0.4,0.3,0.3,0.3,0.2,0.4,0.2,0.5,0.2,0.2,0.4,0.2,0.2,0.2,0.2,0.4,0.1,0.2,0.2,0.2,0.2,0.1,0.2,0.2,0.3,0.3,0.2,0.6,0.4,0.3,0.2,0.2,0.2,0.2,1.4,1.5,1.5,1.3,1.5,1.3,1.6,1,1.3,1.4,1,1.5,1,1.4,1.3,1.4,1.5,1,1.5,1.1,1.8,1.3,1.5,1.2,1.3,1.4,1.4,1.7,1.5,1,1.1,1,1.2,1.6,1.5,1.6,1.5,1.3,1.3,1.3,1.2,1.4,1.2,1,1.3,1.2,1.3,1.3,1.1,1.3,2.5,1.9,2.1,1.8,2.2,2.1,1.7,1.8,1.8,2.5,2,1.9,2.1,2,2.4,2.3,1.8,2.2,2.3,1.5,2.3,2,2,1.8,2.1,1.8,1.8,1.8,2.1,1.6,1.9,2,2.2,1.5,1.4,2.3,2.4,1.8,1.8,2.1,2.4,2.3,1.9,2.3,2.5,2.3,1.9,2,2.3,1.8],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica"]],"container":"<table class=\"compact\">\n  <thead>\n    <tr>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tBp","buttons":["csv","excel"],"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 0, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 1, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 2, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 3, 1, 3, ',', '.');\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+
+---
+
+## FAQ
+
+&lt;blockquote&gt;
+How do I start a new slide? 
+&lt;/blockquote&gt;
+
+Using three dashes at the start of a new line &lt;code&gt;---&lt;/code&gt;
+
+&lt;br&gt;
+
+--
+
+&lt;blockquote&gt;
+I have three dashes but it's not starting a new slide.  
+&lt;/blockquote&gt;
+
+The three dashes need to be on their own line with **no spaces after them**
+
+---
+background-image: url("assets/title-image1.jpg")
+background-position: 100% 50%
+background-size: 50% 75%
+
+## Background images
+
+.pull-left[
+
+- We can place images anywhere on the screen by using `background-image` in conjunction with &lt;br&gt;`background-position`
+- The image, size and position are defined immediately after the `---` that starts a new slide.
+
+
+Assuming `image.jpg` is in the same folder as your `.Rmd` file, the code is:
+
+```
+---
+background-image: url("image.jpg")
+background-position: 100% 50%
+background-size: 50% 75%
+
+## Background images
+
+.pull-left[
+
+... Left column text here ...
+
+]
+
+```
+
+]
+
+---
+class: center, middle
+
+# Text adjustments
+
+It is also possible to change the .blue[color] of any text by using `.color[text here]`
+
+--
+
+For example `.grey[grey]` will make text .grey[grey].
+
+--
+
+We can do this with white, .brand-red[Sydney master brand red], .brand-blue[Sydney master brand blue], .brand-yellow[Sydney master brand yellow], .brand-charcoal[Sydney master brand charcoal], .brand-grey[Sydney master brand grey], .black[black], .red[red], .blue[blue], .green[green], .yellow[yellow], .orange[orange], .purple[purple], .grey[grey].
+
+--
+
+To really make text stand out we can just use `**text**` like **this** 
+or `.bold[this]` .bold[this].
+
+You can string together these formats, e.g. `.blue[.bold[...]]` 
+to get .blue[.bold[blue and bold text]].
+
+--
+
+.left[.footnote[The text on this slide is centered and in the middle of the slide because the slide began with:
+```
+---
+class: center, middle
+```
+
+]]
+
+---
+class: sydney-yellow
+
+## Two columns!
+
+.pull-left[
+
+### Some things on the left
+
+1. List of things;
+
+1. Plain Markdown;
+
+1. blah blah; and
+
+1. Plain Markdown
+
+]
+
+--
+
+.pull-right[
+
+### and other things on the right
+
+We do this by using the `.pull-left[]` and `.pull-right[]` commands. Just put any text inside the  brackets and you're good to go
+
+]
+
+Code below (or above) these two has no problem extending the full width of the slide.
+
+.footnote[The background of this slide is Sydney University Yellow because the slide began with:
+```
+---
+class: sydney-yellow
+```
+]
+
+---
+
+## R code and highlighting <i class="fab  fa-r-project fa-pull-right "></i>
+
+.pull-left[
+An example using a leading `*`:
+
+    ```r
+    if (TRUE) {
+    ** message("Very important!")
+    }
+    ```
+Output:
+```r
+if (TRUE) {
+* message("Very important!")
+}
+```
+
+This is invalid R code, so it is a plain fenced code block that is not executed.
+]
+
+.pull-right[
+An example using `{{}}`:
+
+    ```{r tidy=FALSE}
+    if (TRUE) {
+    *{{ message("Very important!") }}
+    }
+    ```
+Output:
+
+```r
+if (TRUE) {
+* message("Very important!") 
+}
+```
+
+```
+## Very important!
+```
+
+It is valid R code so you can run it.
+]
+
+
+---
+
+## R code and plot output <i class="fab  fa-r-project fa-pull-right "></i>
+
+
+```r
+library("tidyverse")
+cars %&gt;% 
+  ggplot(aes(x = dist, y = speed)) + 
+  geom_point() + 
+* geom_smooth(method = 'lm', 
+*             formula = y ~ poly(x, 2)) + # highlighted lines use {{...}}
+  theme_bw(base_size = 24) + 
+  labs(y = "Speed (mph)", x = "Stopping distance (ft)")
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-6-1.png" width="864" style="display: block; margin: auto;" /&gt;
+
+
+---
+class: middle, bottom
+background-image: url("assets/USydLogo.svg")
+background-size: 50%
+background-position: 90% 10%
+
+This slide starts with 
+
+```
+---
+class: middle, bottom
+background-image: url("assets/USydLogo.svg")
+background-size: 50%
+background-position: 90% 10%
+```
+
+If you want the background image to take up the full slide use
+
+```
+---
+class: middle, bottom
+background-image: url("assets/USydLogo.svg")
+*background-size: contain
+*background-position: 50% 50%
+```
+
+---
+class: segue
+
+# Next section
+
+
+.left[.footnote[
+
+```
+---
+class: segue
+```
+
+]]
+
+
+---
+class: segue-red
+
+# Next section
+
+
+.left[.footnote[
+
+```
+---
+class: segue-red
+```
+
+]]
+
+
+
+---
+class: segue-yellow
+background-image: url("assets/USydLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+
+# Next section
+
+
+.left[.footnote[
+
+```
+---
+class: segue-yellow
+background-image: url("assets/USydLogo.svg")
+background-size: 20%
+background-position: 95% 95%
+```
+
+]]
+
+
+---
+class: sydney-blue
+
+## Title for sydney-blue class
+
+text here
+
+.footnote[
+
+```
+---
+class: sydney-blue
+```
+
+]
+
+---
+class: sydney-red
+
+## Title for sydney-red class
+
+text here
+
+.footnote[
+
+```
+---
+class: sydney-red
+```
+
+]
+
+---
+class: sydney-yellow
+
+## Title for sydney-yellow class
+
+text here
+
+.footnote[
+
+```
+---
+class: sydney-yellow
+```
+
+]
+
+---
+
+## Title slide image
+
+I don't have a good solution for the title slide image.  I considered hard coding it to look for a file called `title-image.jpg` in the same folder as the `sydney.css` file. This is possible and if this file is missing, it's no problem, it just won't show an image.  The image would be hardcoded to be stretched the full height of the title slide and to only take up 50% of the width.  But I decided this was less than optimal.
+
+In the longer term, I'd like to make this more general, being able to specify the file path in the yaml along with the size and position.  I'd also like to be able to specify the background colour.  But I have no idea if this is technically feasible or not.
+
+In the iterim, you can specify `seal: false` in the yaml to disable the default title slide and create your own.  For example:
+
+.code70[
+
+```
+---
+class: title-slide
+background-image: url("assets/USydLogo-black.svg"), url("assets/title-image2.jpg")
+background-position: 10% 90%, 100% 50%
+background-size: 160px, 100% 100%
+
+# .black[Manual title slide]
+
+## Subtitle
+
+### Author
+
+### Date
+```
+
+]
+
+
+
+---
+class: title-slide
+background-image: url("assets/USydLogo.svg"), url("assets/title-image1.jpg")
+background-position: 10% 90%, 100% 50%
+background-size: 160px, 100% 100%
+
+# .text-shadow[.black[Manual title slide (tital-image.1)]]
+
+## Subtitle
+
+### Author
+
+### Date
+
+
+---
+class: title-slide
+background-image: url("assets/USydLogo-white.svg"), url("assets/title-image1.jpg")
+background-position: 10% 90%, 100% 50%
+background-size: 160px, 50% 100%
+background-color: #0148A4
+
+
+# .text-shadow[.white[Manual title slide]]
+
+## .white[Subtitle]
+
+### .white[Author]
+
+### .white[Date]
+
+---
+class: title-slide
+background-image: url("assets/USydLogo-black.svg"), url("assets/title-image2.jpg")
+background-position: 10% 90%, 100% 50%
+background-size: 160px, 100% 100%
+
+# .text-shadow[.black[Manual title slide]]
+
+## Subtitle
+
+### Author
+
+### Date
+
+---
+
+## Example YAML
+
+.code70[
+
+```r
+---
+title: "Xaringan"
+subtitle: "A theme for the &lt;br&gt;University of Sydney"
+author: "Garth Tarr"
+date: "15 May 2018"
+output:
+  xaringan::moon_reader:
+    css: ["default", "assets/sydney-fonts.css", "assets/sydney.css"]
+    self_contained: false # if true, fonts will be stored locally
+    seal: false 
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '4:3' # alternatives '16:9' or '4:3' or others e.g. 13:9
+      navigation:
+        scroll: false
+---
+class: title-slide
+background-image: url("assets/USydLogo-white.svg"), url("assets/title-image1.jpg")
+background-position: 10% 90%, 100% 50%
+background-size: 160px, 50% 100%
+background-color: #0148A4
+
+# Manually specify title here
+
+## Manually specify subtitle here
+
+### Manually specify author here
+
+### Manually specify date here
+```
+
+]
+
+---
+
+
+---
+
+# Tables
+
+- Tables are centered by default in **xaringan**. 
+- We can override this using `.pull-left[]` and `.pull-right[]` or `.columns-2[]`
+
+
+.pull-left[
+
+|  This |  is |   a    |    table     |
+| :---- | :-- | -----: | :----------: |
+| It is | now | pulled | to the left  |
+| 12    | 34  | 56     |      78      |
+
+]
+
+.pull-right[.footnotesize[
+
+
+```r
+knitr::kable(iris[1:10, 1:4], format = "html")
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; Sepal.Length &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Sepal.Width &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Petal.Length &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Petal.Width &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4.9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4.6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4.6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4.9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+]]
+
+---
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
+background-size: 100px
+background-position: 90% 8%
+
+# xaringan
+
+- Press `h` or `?` to see the possible ninjutsu you can use in remark.js.
+
+- You can see all the goodies like this (hint press `p`).
+
+- Check out more in-depth tutorial [here](https://slides.yihui.name/xaringan/#1)
+
+---
+class: sydney-blue
+background-image: url(assets/USydLogo-white.svg)
+background-size: 260px
+background-position: 5% 95%
+
+# Thanks!
+
+.pull-right[.pull-down[
+
+&lt;a href="mailto:garth.tarr@sydney.edu.au"&gt;
+.white[<i class="fas  fa-paper-plane "></i> garth.tarr@sydney.edu.au]
+&lt;/a&gt;
+
+&lt;a href="http://garthtarr.github.io/sydney_xaringan"&gt;
+.white[<i class="fas  fa-link "></i> garthtarr.github.io/sydney_xaringan]
+&lt;/a&gt;
+
+&lt;a href="http://twitter.com/garthtarr"&gt;
+.white[<i class="fab  fa-twitter "></i> @garthtarr]
+&lt;/a&gt;
+
+&lt;a href="http://github.com/garthtarr"&gt;
+.white[<i class="fab  fa-github "></i> @garthtarr]
+&lt;/a&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+]]
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "4:3",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -28,11 +28,42 @@ C=0 M=0 Y=0 K=10
 R=241 G=241 B=241 
 */
 
+.remark-slide-content p, .remark-slide-content li {
+  line-height: 1.5;
+}
+
+.fn {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+.pull-down {
+  position: absolute;
+  bottom: 50px;
+}
+
 /* inverse is like segue (but not identical) */
 .inverse {
   background-color: #0148A4;
   text-shadow: 0 0 20px #333;
+  
 }
+
+/* inverse is like segue (but not identical) */
+.sydney-blue {
+  background-color: #0148A4;
+  color: white;
+}
+
+.sydney-yellow {
+  background-color: #FFB800;
+}
+
+.sydney-red {
+  background-color: #e64626;
+  color: white;
+}
+
 .inverse .remark-slide-number {
   display: none;
 }
@@ -48,6 +79,31 @@ R=241 G=241 B=241
 .segue .remark-slide-number {
   display: none;
 }
+
+.segue-red {
+  text-align:center;
+  vertical-align: middle;
+  background-color: #e64626;
+  color: #ffffff;
+  text-shadow: 0 0 20px #333;
+}
+.segue-red .remark-slide-number {
+  display: none;
+}
+
+.segue-yellow {
+  text-align:center;
+  vertical-align: middle;
+  background-color: #FFB800;
+  color: #424242;
+  text-shadow: 0 0 2px #333;
+}
+.segue-yellow .remark-slide-number {
+  display: none;
+}
+
+
+
 
 /* example slide with background colour to distinguish
 it from other content slides */
@@ -77,6 +133,14 @@ a {
  * Template-independent CSS code for 
  * formatting xaringan presentations
  ************************************/
+
+.footnote {
+  position: absolute;
+  bottom: 0;
+  padding-right: 4em;
+  font-size: 70%;
+}
+
 
 /************************
  * Font size and colours
@@ -161,7 +225,7 @@ slides > slide {
   background: #F5F5F5; /* lighter */
   /* background: #e7e8e2; /* darker */
   border-radius: 3px;
-  padding: 4px;
+  padding: 2px;
 }
 
 /******************
@@ -333,7 +397,8 @@ To specify the margin of the first title h1
 
 @page { margin: 0; }
 @media print {
-  .inverse, .segue {
+  .inverse, .segue, .segue-yellow, .segue-red, .sydney-blue,
+  .sydney-yellow, .sydney-red {
     background-color: transparent;
     color: black;
     text-shadow: none;
