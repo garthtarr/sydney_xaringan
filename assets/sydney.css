@@ -410,12 +410,6 @@ To specify the margin of the first title h1
   vertical-align: middle;
 }
 
-
-/* References: many customisations adapted from the examples here:
-https://github.com/yihui/xaringan/tree/master/inst/rmarkdown/templates/xaringan/resources
-*/
-
-
 /* H3 fonts */
 .title-slide h3 {
   font-size: 28px;
