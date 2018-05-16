@@ -450,3 +450,7 @@ blockquote {
 .text-shadow {
   text-shadow: 0 0 4px #424242;
 }
+
+/* References: many customisations adapted from the examples here:
+https://github.com/yihui/xaringan/tree/master/inst/rmarkdown/templates/xaringan/resources
+*/
