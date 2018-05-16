@@ -1,0 +1,452 @@
+/* 
+Masterbrand charcoal #424242; 
+C=0 M=0 Y=0 K=90 
+R=66 G=66 B=66 
+
+Masterbrand red #e64626;
+C=0 M=0 Y=0 K=90
+R=66 G=66 B=66 
+
+Masterbrand white #ffffff;
+C=0 M=0 Y=0 K=0
+R=255 G=255 B=255
+
+Masterbrand black #000000;
+C=0 M=0 Y=0 K=100
+R=10 G=10 B=10
+
+Accent yellow #FFB800
+C=0 M=25 Y=98 K=0
+R=255 G=184 B=0 
+
+Accent blue #0148A4
+C=100 M=61 Y=0 K=0
+R=1 G=72 B=164 
+
+Accent grey - supportive #F1F1F1
+C=0 M=0 Y=0 K=10
+R=241 G=241 B=241 
+*/
+
+/* inverse is like segue (but not identical) */
+.inverse {
+  background-color: #0148A4;
+  text-shadow: 0 0 20px #333;
+}
+.inverse .remark-slide-number {
+  display: none;
+}
+
+/* segue */
+.segue {
+  text-align:center;
+  vertical-align: middle;
+  background-color: #0148A4;
+  color: #ffffff;
+  text-shadow: 0 0 20px #333;
+}
+.segue .remark-slide-number {
+  display: none;
+}
+
+/* example slide with background colour to distinguish
+it from other content slides */
+.eg {
+  background-color: #F1F1F1;
+  /* rgb(231, 238, 242); */
+}
+.eg.nobackground {
+  background-color:white;
+}
+
+/* link colour */
+a { 
+    color: #0148A4; 
+} 
+
+.columns-2 {
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  columns: 2;
+  -webkit-column-gap: 1em;
+  -moz-column-gap: 1em;
+  column-gap: 1em;
+}
+
+/************************************
+ * Template-independent CSS code for 
+ * formatting xaringan presentations
+ ************************************/
+
+/************************
+ * Font size and colours
+ ************************/
+
+/*      LaTeX style       */
+.Large, .Large .remark-code { font-size: 144%; }
+.large, .large .remark-code { font-size: 120%; }
+.small, .small .remark-code { font-size: 90%; }
+.footnotesize, .footnotesize .remark-code { font-size: 80%; }
+.scriptsize, .scriptsize .remark-code { font-size: 70%; }
+.tiny, .tiny .remark-code { font-size: 60%; }
+
+/* or you can be more specific */
+.code10 .remark-code { font-size: 10%; }
+.code20 .remark-code { font-size: 20%; }
+.code30 .remark-code { font-size: 30%; }
+.code40 .remark-code { font-size: 40%; }
+.code50 .remark-code { font-size: 50%; }
+.code60 .remark-code { font-size: 60%; }
+.code70 .remark-code { font-size: 70%; }
+.code75 .remark-code { font-size: 75%; }
+.code80 .remark-code { font-size: 80%; }
+.code90 .remark-code { font-size: 90%; }
+.font10 { font-size: 10%; }
+.font20 { font-size: 20%; }
+.font30 { font-size: 30%; }
+.font40 { font-size: 40%; }
+.font50 { font-size: 50%; }
+.font60 { font-size: 60%; }
+.font70 { font-size: 70%; }
+.font70 { font-size: 75%; }
+.font80 { font-size: 80%; }
+.font90 { font-size: 90%; }
+.font110 { font-size: 110%; }
+.font120 { font-size: 120%; }
+.font130 { font-size: 130%; }
+.font140 { font-size: 140%; }
+.font150 { font-size: 150%; }
+.font160 { font-size: 160%; }
+.font170 { font-size: 170%; }
+.font180 { font-size: 180%; }
+.font190 { font-size: 190%; }
+.font200 { font-size: 200%; }
+
+.brand-red { color: #e64626; }
+.brand-blue { color: #0148A4; }
+.brand-yellow { color: #FFB800; }
+.brand-charcoal {color: #424242; }
+.brand-gray {color: #F1F1F1;}
+.brand-grey {color: #F1F1F1;}
+.black { color: black; }
+.white { color: white; }
+.red { color: red; }
+.blue { color: blue; }
+.green { color: green; }
+.yellow { color: yellow; }
+.orange { color: orange; }
+.purple { color: purple; }
+.gray { color: gray; }
+.grey { color: gray; }
+
+.bold { font-weight: bold; }
+.bolder { font-weight: bolder; }
+
+/******************
+ * Slide scrolling
+ * (non-functional)
+ * not sure if it is a good idea anyway
+slides > slide {
+  overflow: scroll;
+ padding: 5px 40px;
+}
+.scrollable-slide .remark-slide {
+  height: 400px;
+  overflow: scroll !important;
+}
+ ******************/
+ 
+ /* inline code background */
+ .remark-inline-code{
+  background: #F5F5F5; /* lighter */
+  /* background: #e7e8e2; /* darker */
+  border-radius: 3px;
+  padding: 4px;
+}
+
+/******************
+ * Coloured content boxes
+ ****************/
+.content-box { 
+    box-sizing: border-box;
+    background-color: #e2e2e2;
+}
+.content-box-blue,
+.content-box-gray,
+.content-box-grey,
+.content-box-army,
+.content-box-green,
+.content-box-purple,
+.content-box-red,
+.content-box-yellow {
+  box-sizing: border-box;
+  border-radius: 15px;
+  margin: 0 0 15px;
+  overflow: hidden;
+  padding: 0px 20px 0px 20px;
+  width: 100%;
+}
+.content-box-blue { background-color: #F0F8FF; }
+.content-box-gray { background-color: #e2e2e2; }
+.content-box-grey {	background-color: #F5F5F5; }
+.content-box-army {	background-color: #737a36; }
+.content-box-green { background-color: #d9edc2; }
+.content-box-purple { background-color: #e2e2f9; }
+.content-box-red { background-color: #ffcccc; }
+.content-box-yellow { background-color: #fef5c4; }
+.content-box-blue .remark-inline-code,
+.content-box-blue .remark-inline-code,
+.content-box-gray .remark-inline-code,
+.content-box-grey .remark-inline-code,
+.content-box-army .remark-inline-code,
+.content-box-green .remark-inline-code,
+.content-box-purple .remark-inline-code,
+.content-box-red .remark-inline-code,
+.content-box-yellow .remark-inline-code { 
+  background: none;
+}
+
+/* code higlighting */
+.remark-code-string-highlighted, .remark-code-line-highlighted {
+    background: yellow;
+}
+
+.full-width {
+    display: flex;
+    width: 100%;
+    flex: 1 1 auto;
+}
+
+/***********
+ * Slide margins
+ ***********/
+ 
+.remark-slide-content {
+  padding: 25px;
+  /*
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  */
+}
+
+/* 
+To specify the margin of the first title h1
+*/
+.remark-slide-content > h1:first-of-type {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.remark-slide-content > h2:first-of-type {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.remark-slide-content > h3:first-of-type {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.remark-slide-content > h4:first-of-type {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/***********
+ *
+ * Changed CSS
+ *
+ **************/
+
+.opacity{
+    opacity: 0.5;
+}
+
+
+
+.blur {
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
+
+
+.grayscale img {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+
+
+
+
+
+/**************
+ *
+ * Fancy stuff
+ *
+ **************/
+
+
+.rotate-left {
+    -webkit-transform: rotate(-2deg);
+    -moz-transform: rotate(-2deg);
+    transform: rotate(-2deg); 
+}
+
+.rotate-right {
+    -webkit-transform: rotate(2deg);
+    -moz-transform: rotate(2deg);
+    transform: rotate(2deg);     
+}
+
+
+
+/********** 
+ * 
+ * Image stuff
+ *
+ ************/
+
+
+.polaroid img {
+    border: 10px solid #fff;
+    border-bottom: 45px solid #fff;
+    -webkit-box-shadow: 3px 3px 3px #111;
+    -moz-box-shadow: 3px 3px 3px #111;
+    box-shadow: 3px 3px 3px #111;
+}
+
+
+
+.shadow {
+    -moz-border-radius: 5px;
+    -moz-box-shadow: 5px 5px 5px #aaa;
+    -webkit-box-shadow: 5px 5px 5px #aaa;
+    box-shadow: 5px 5px 5px #aaa;
+    border-radius: 2px;  
+}
+
+
+/* disable background colour when printing */
+
+@page { margin: 0; }
+@media print {
+  .inverse, .segue {
+    background-color: transparent;
+    color: black;
+    text-shadow: none;
+  }
+  .inverse h1, .inverse h2, .inverse h3, .inverse h4, .inverse h5, .segue {
+    background-color: transparent;
+    color: black;
+    text-shadow: none;
+  }
+  .eg {
+    background-color: transparent;
+  }
+  .remark-slide-scaler {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+}
+
+
+
+/*~~~~~~~~~~~~~~~~*/
+/* USYD additions */
+/*~~~~~~~~~~~~~~~~*/
+
+/* Title slide */
+/* Add image and change bg color
+.title-slide {
+  background-image: url(USydLogo-black.svg), url("title-image.jpg");
+  /* background-image: url(https://sydney.edu.au/etc/designs/corporate-commons/bower_components/corporate-frontend/dist/assets/img/USydLogo.svg); */
+  /*
+  background-position: 10% 90%, 100% 50%;
+  background-size: 160px, 50% 100%;
+  background-color: #e64626;
+  /*padding-left: 100px;   delete this for 4:3 aspect ratio */
+/*
+}
+*/
+ 
+.title-slide {
+  background-image: url(USydLogo-black.svg);
+  /* background-image: url(https://sydney.edu.au/etc/designs/corporate-commons/bower_components/corporate-frontend/dist/assets/img/USydLogo.svg); */
+  background-position: 10% 90%;
+  background-size: 160px;
+  background-color: #e64626;
+  text-align:left;
+  vertical-align: top;
+  /*text-shadow: 0 0 5px #333;*/
+  /*padding-left: 100px;   delete this for 4:3 aspect ratio */
+}
+
+/* H1 fonts */
+.title-slide h1 {
+  color: #ffffff;
+  font-weight: normal;
+  font-size: 45px;
+  line-height: 0.05;
+  padding: 20px;
+  text-align: left;
+  vertical-align: middle;
+  margin-bottom: 18px;
+}
+
+/* H2 fonts */
+.title-slide h2 {
+  color: black;
+  font-size: 35px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  margin-top: 0px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+/* H3 fonts */
+.title-slide h3 {
+  font-size: 28px;
+  font-weight: normal;
+  color: black;
+  padding-left: 20px;
+  margin: 0px;
+  line-height: 1;
+  text-align: left;
+  vertical-align: middle;
+}
+
+/* Remove slide count */
+.title-slide .remark-slide-number {
+  display: none;
+}
+
+/* USYD blockquote */
+blockquote {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-left: solid 10px #0148A4;
+  border-top: solid 2px #0148A4;
+  border-bottom: solid 2px #0148A4;
+  border-right: solid 2px #0148A4;
+  box-shadow: 0 0 6px rgba(0,0,0,0.5);
+  /* background-color: #e64626; */
+  color: #e64626;
+  font-weight: bold;
+  padding: 1em;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.text-shadow {
+  text-shadow: 0 0 4px #424242;
+}
