@@ -395,9 +395,6 @@ blockquote {
   color: blue;
 }
 */
-.remark-inline-code .MathJax_Preview a {
-  color: black;
-}
 
 /* References: many customisations adapted from the examples here:
 https://github.com/yihui/xaringan/tree/master/inst/rmarkdown/templates/xaringan/resources
