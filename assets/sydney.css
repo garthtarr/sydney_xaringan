@@ -166,11 +166,7 @@ slides > slide {
   padding: 2px;
 }
 
-/* if wanted to change cpolor of mathjax 
-.remark-inline-code .mjx-chtml {
-  color: blue;
-}
-*/
+
 
 /******************
  * Coloured content boxes
@@ -394,9 +390,19 @@ blockquote {
   text-shadow: 0 0 4px #424242;
 }
 
+/* if wanted to change mathjax formatting
+.remark-inline-code .mjx-chtml {
+  color: blue;
+}
+*/
+.remark-inline-code .MathJax_Preview a {
+  color: black;
+}
+
 /* References: many customisations adapted from the examples here:
 https://github.com/yihui/xaringan/tree/master/inst/rmarkdown/templates/xaringan/resources
 */
+
 
 
 /* 
