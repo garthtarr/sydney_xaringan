@@ -1,73 +1,77 @@
+/***********
+ Slide margins and spacings
+ ***********/
+.remark-slide-content {
+  padding: 25px;
+  /* could be custom modified:
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  */
+}
 /* 
-Masterbrand charcoal #424242; 
-C=0 M=0 Y=0 K=90 
-R=66 G=66 B=66 
-
-Masterbrand red #e64626;
-C=0 M=0 Y=0 K=90
-R=66 G=66 B=66 
-
-Masterbrand white #ffffff;
-C=0 M=0 Y=0 K=0
-R=255 G=255 B=255
-
-Masterbrand black #000000;
-C=0 M=0 Y=0 K=100
-R=10 G=10 B=10
-
-Accent yellow #FFB800
-C=0 M=25 Y=98 K=0
-R=255 G=184 B=0 
-
-Accent blue #0148A4
-C=100 M=61 Y=0 K=0
-R=1 G=72 B=164 
-
-Accent grey - supportive #F1F1F1
-C=0 M=0 Y=0 K=10
-R=241 G=241 B=241 
+To specify the margin of the first title h1
 */
-
-.remark-slide-content p, .remark-slide-content li {
+.remark-slide-content > h1:first-of-type {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.remark-slide-content > h2:first-of-type {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.remark-slide-content > h3:first-of-type {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.remark-slide-content > h4:first-of-type {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+/* change the line spread for readability
+   and so that inline code highlighting 
+   doesn't cover text on the line above */
+.remark-slide-content p, 
+.remark-slide-content li {
   line-height: 1.5;
 }
 
+/*************************
+  Custom classes 
+**************************/
+
+/* footnote identifier use: .fn[1] */
 .fn {
   vertical-align: super;
   font-size: smaller;
 }
-
+/* use to position text at the bottom */
 .pull-down {
   position: absolute;
   bottom: 50px;
 }
 
-/* inverse is like segue (but not identical) */
+/* Change default inverse background colour */
 .inverse {
   background-color: #0148A4;
   text-shadow: 0 0 20px #333;
-  
 }
-
-/* inverse is like segue (but not identical) */
+.inverse .remark-slide-number {
+  display: none;
+}
+/* background colour classes */
 .sydney-blue {
   background-color: #0148A4;
   color: white;
 }
-
 .sydney-yellow {
   background-color: #FFB800;
 }
-
 .sydney-red {
   background-color: #e64626;
   color: white;
 }
-
-.inverse .remark-slide-number {
-  display: none;
-}
-
 /* segue */
 .segue {
   text-align:center;
@@ -102,9 +106,6 @@ R=241 G=241 B=241
   display: none;
 }
 
-
-
-
 /* example slide with background colour to distinguish
 it from other content slides */
 .eg {
@@ -137,74 +138,11 @@ a {
 .footnote {
   position: absolute;
   bottom: 0;
-  padding-right: 4em;
+  padding-right: 8em; /* to avoid the page numbering */ 
   font-size: 70%;
 }
-
-
-/************************
- * Font size and colours
- ************************/
-
-/*      LaTeX style       */
-.Large, .Large .remark-code { font-size: 144%; }
-.large, .large .remark-code { font-size: 120%; }
-.small, .small .remark-code { font-size: 90%; }
-.footnotesize, .footnotesize .remark-code { font-size: 80%; }
-.scriptsize, .scriptsize .remark-code { font-size: 70%; }
-.tiny, .tiny .remark-code { font-size: 60%; }
-
-/* or you can be more specific */
-.code10 .remark-code { font-size: 10%; }
-.code20 .remark-code { font-size: 20%; }
-.code30 .remark-code { font-size: 30%; }
-.code40 .remark-code { font-size: 40%; }
-.code50 .remark-code { font-size: 50%; }
-.code60 .remark-code { font-size: 60%; }
-.code70 .remark-code { font-size: 70%; }
-.code75 .remark-code { font-size: 75%; }
-.code80 .remark-code { font-size: 80%; }
-.code90 .remark-code { font-size: 90%; }
-.font10 { font-size: 10%; }
-.font20 { font-size: 20%; }
-.font30 { font-size: 30%; }
-.font40 { font-size: 40%; }
-.font50 { font-size: 50%; }
-.font60 { font-size: 60%; }
-.font70 { font-size: 70%; }
-.font70 { font-size: 75%; }
-.font80 { font-size: 80%; }
-.font90 { font-size: 90%; }
-.font110 { font-size: 110%; }
-.font120 { font-size: 120%; }
-.font130 { font-size: 130%; }
-.font140 { font-size: 140%; }
-.font150 { font-size: 150%; }
-.font160 { font-size: 160%; }
-.font170 { font-size: 170%; }
-.font180 { font-size: 180%; }
-.font190 { font-size: 190%; }
-.font200 { font-size: 200%; }
-
-.brand-red { color: #e64626; }
-.brand-blue { color: #0148A4; }
-.brand-yellow { color: #FFB800; }
-.brand-charcoal {color: #424242; }
-.brand-gray {color: #F1F1F1;}
-.brand-grey {color: #F1F1F1;}
-.black { color: black; }
-.white { color: white; }
-.red { color: red; }
-.blue { color: blue; }
-.green { color: green; }
-.yellow { color: yellow; }
-.orange { color: orange; }
-.purple { color: purple; }
-.gray { color: gray; }
-.grey { color: gray; }
-
-.bold { font-weight: bold; }
-.bolder { font-weight: bolder; }
+.footnote .remark-code, 
+.footnote .remark-inline-code{ font-size: 80%; }
 
 /******************
  * Slide scrolling
@@ -221,12 +159,18 @@ slides > slide {
  ******************/
  
  /* inline code background */
- .remark-inline-code{
+ .remark-inline-code {
   background: #F5F5F5; /* lighter */
   /* background: #e7e8e2; /* darker */
   border-radius: 3px;
   padding: 2px;
 }
+
+/* if wanted to change cpolor of mathjax 
+.remark-inline-code .mjx-chtml {
+  color: blue;
+}
+*/
 
 /******************
  * Coloured content boxes
@@ -270,63 +214,19 @@ slides > slide {
   background: none;
 }
 
-/* code higlighting */
-.remark-code-string-highlighted, .remark-code-line-highlighted {
-    background: yellow;
-}
-
 .full-width {
     display: flex;
     width: 100%;
     flex: 1 1 auto;
 }
 
-/***********
- * Slide margins
- ***********/
- 
-.remark-slide-content {
-  padding: 25px;
-  /*
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  */
-}
 
-/* 
-To specify the margin of the first title h1
-*/
-.remark-slide-content > h1:first-of-type {
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
-.remark-slide-content > h2:first-of-type {
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
-.remark-slide-content > h3:first-of-type {
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
-.remark-slide-content > h4:first-of-type {
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
 
 /***********
- *
- * Changed CSS
- *
+ Changed CSS
  **************/
 
-.opacity{
-    opacity: 0.5;
-}
-
-
-
+.opacity{ opacity: 0.5; }
 .blur {
     -webkit-filter: blur(5px);
     -moz-filter: blur(10px);
@@ -334,46 +234,27 @@ To specify the margin of the first title h1
     -ms-filter: blur(5px);
     filter: blur(5px);
 }
-
-
 .grayscale img {
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
 }
 
-
-
-
-
-
 /**************
- *
  * Fancy stuff
- *
  **************/
-
-
 .rotate-left {
     -webkit-transform: rotate(-2deg);
     -moz-transform: rotate(-2deg);
     transform: rotate(-2deg); 
 }
-
 .rotate-right {
     -webkit-transform: rotate(2deg);
     -moz-transform: rotate(2deg);
     transform: rotate(2deg);     
 }
-
-
-
 /********** 
- * 
  * Image stuff
- *
  ************/
-
-
 .polaroid img {
     border: 10px solid #fff;
     border-bottom: 45px solid #fff;
@@ -381,9 +262,6 @@ To specify the margin of the first title h1
     -moz-box-shadow: 3px 3px 3px #111;
     box-shadow: 3px 3px 3px #111;
 }
-
-
-
 .shadow {
     -moz-border-radius: 5px;
     -moz-box-shadow: 5px 5px 5px #aaa;
@@ -518,4 +396,35 @@ blockquote {
 
 /* References: many customisations adapted from the examples here:
 https://github.com/yihui/xaringan/tree/master/inst/rmarkdown/templates/xaringan/resources
+*/
+
+
+/* 
+Masterbrand charcoal #424242; 
+C=0 M=0 Y=0 K=90 
+R=66 G=66 B=66 
+
+Masterbrand red #e64626;
+C=0 M=0 Y=0 K=90
+R=66 G=66 B=66 
+
+Masterbrand white #ffffff;
+C=0 M=0 Y=0 K=0
+R=255 G=255 B=255
+
+Masterbrand black #000000;
+C=0 M=0 Y=0 K=100
+R=10 G=10 B=10
+
+Accent yellow #FFB800
+C=0 M=25 Y=98 K=0
+R=255 G=184 B=0 
+
+Accent blue #0148A4
+C=100 M=61 Y=0 K=0
+R=1 G=72 B=164 
+
+Accent grey - supportive #F1F1F1
+C=0 M=0 Y=0 K=10
+R=241 G=241 B=241 
 */

@@ -23,6 +23,11 @@
     <script src="index_files/dt-ext-buttons-1.10.16/js/buttons.print.min.js"></script>
     <link href="index_files/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
     <script src="index_files/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
     <link rel="stylesheet" href="assets/sydney-fonts.css" type="text/css" />
     <link rel="stylesheet" href="assets/sydney.css" type="text/css" />
   </head>
@@ -38,7 +43,7 @@ class: center, middle, inverse, title-slide
 ---
 
 
-## Installing
+## Installing <i class="fas  fa-download fa-pull-right "></i>
 
 The **xaringan** package is on CRAN, but I recommend installing the development release from <i class="fab  fa-github "></i>
 
@@ -64,7 +69,7 @@ To make things easy to get started, I recommend downloading a copy of the `sydne
 
 ---
 
-## Why xaringan/remark.js? 
+## Why xaringan/remark.js? <i class="fas  fa-check-circle fa-pull-right "></i>
 
 - I was a big **ioslides** fan
 
@@ -84,19 +89,19 @@ More: [yihui.name/en/2017/08/why-xaringan-remark-js/](https://yihui.name/en/2017
 
 ---
 
-## Why not xaringan/remark.js? 
+## Why **not** xaringan/remark.js? <i class="fas  fa-times-circle fa-pull-right "></i>
 
-- It is difficult to generate self-contained HTML presentation files.
+- It is difficult to generate self-contained HTML presentation files. I.e. you'll need access to the internet for it to work properly.  However, the quality of the print to pdf means that you'll have excellent pdf backup slides but it will lack animation, gifs, etc.
 
-- You can't embed shiny apps (easily) and not all htemlwidgets are guaranteed to work.
+- You can't embed shiny apps (easily) and not all htmlwidgets are guaranteed to work.
 
 - I have a lot of ioslides and beamer content... but it's not so hard to translate from ioslides to xaringan (beamer's another story).
 
-
+- I haven't worked out how to activate slide scrolling.  I've looked into it but I'm not sure if it's possible.  Possibly a good thing, slide scrolling made me lazy with results presentation, and often caused issues with printing.
 
 ---
 
-## Content boxes
+## Content boxes <i class="fas  fa-box fa-pull-right "></i>
 
 .content-box-blue[This is a `.content-box-blue[]` chunk. Content boxes are pretty flexible and can include lists, for example:
 
@@ -135,7 +140,7 @@ If the text includes a new line character, or spans multiple lines, you get a 10
 
 ---
 
-## Quotes
+## Quotes <i class="fas  fa-quote-right fa-pull-right "></i>
 
 We can include **block quotes** using
 
@@ -270,7 +275,7 @@ icon::fa("spinner", size = 2,
 
 .pull-right[
 
-In line expressions also work. 
+Inline expressions also work. 
 
 <i class="fas  fa-bell "></i> created using 
 
@@ -287,7 +292,7 @@ For more info see [the <i class="fab  fa-github "></i> repo](https://github.com/
 class: code75
 
 
-## Data tables
+## Data tables <i class="fas  fa-table fa-pull-right "></i>
 
 
 ```r
@@ -298,20 +303,18 @@ iris %&gt;%
   DT::formatRound(1:4, digits = 1) 
 ```
 
-<div id="htmlwidget-31910db0d665b2b327a4" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-31910db0d665b2b327a4">{"x":{"filter":"none","extensions":["Buttons"],"data":[[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5,7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7,6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1,3.7,3.4,3,3,4,4.4,3.9,3.5,3.8,3.8,3.4,3.7,3.6,3.3,3.4,3,3.4,3.5,3.4,3.2,3.1,3.4,4.1,4.2,3.1,3.2,3.5,3.6,3,3.4,3.5,2.3,3.2,3.5,3.8,3,3.8,3.2,3.7,3.3,3.2,3.2,3.1,2.3,2.8,2.8,3.3,2.4,2.9,2.7,2,3,2.2,2.9,2.9,3.1,3,2.7,2.2,2.5,3.2,2.8,2.5,2.8,2.9,3,2.8,3,2.9,2.6,2.4,2.4,2.7,2.7,3,3.4,3.1,2.3,3,2.5,2.6,3,2.6,2.3,2.7,3,2.9,2.9,2.5,2.8,3.3,2.7,3,2.9,3,3,2.5,2.9,2.5,3.6,3.2,2.7,3,2.5,2.8,3.2,3,3.8,2.6,2.2,3.2,2.8,2.8,2.7,3.3,3.2,2.8,3,2.8,3,2.8,3.8,2.8,2.8,2.6,3,3.4,3.1,3,3.1,3.1,3.1,2.7,3.2,3.3,3,2.5,3,3.4,3],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5,1.5,1.6,1.4,1.1,1.2,1.5,1.3,1.4,1.7,1.5,1.7,1.5,1,1.7,1.9,1.6,1.6,1.5,1.4,1.6,1.6,1.5,1.5,1.4,1.5,1.2,1.3,1.4,1.3,1.5,1.3,1.3,1.3,1.6,1.9,1.4,1.6,1.4,1.5,1.4,4.7,4.5,4.9,4,4.6,4.5,4.7,3.3,4.6,3.9,3.5,4.2,4,4.7,3.6,4.4,4.5,4.1,4.5,3.9,4.8,4,4.9,4.7,4.3,4.4,4.8,5,4.5,3.5,3.8,3.7,3.9,5.1,4.5,4.5,4.7,4.4,4.1,4,4.4,4.6,4,3.3,4.2,4.2,4.2,4.3,3,4.1,6,5.1,5.9,5.6,5.8,6.6,4.5,6.3,5.8,6.1,5.1,5.3,5.5,5,5.1,5.3,5.5,6.7,6.9,5,5.7,4.9,6.7,4.9,5.7,6,4.8,4.9,5.6,5.8,6.1,6.4,5.6,5.1,5.6,6.1,5.6,5.5,4.8,5.4,5.6,5.1,5.1,5.9,5.7,5.2,5,5.2,5.4,5.1],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1,0.2,0.2,0.1,0.1,0.2,0.4,0.4,0.3,0.3,0.3,0.2,0.4,0.2,0.5,0.2,0.2,0.4,0.2,0.2,0.2,0.2,0.4,0.1,0.2,0.2,0.2,0.2,0.1,0.2,0.2,0.3,0.3,0.2,0.6,0.4,0.3,0.2,0.2,0.2,0.2,1.4,1.5,1.5,1.3,1.5,1.3,1.6,1,1.3,1.4,1,1.5,1,1.4,1.3,1.4,1.5,1,1.5,1.1,1.8,1.3,1.5,1.2,1.3,1.4,1.4,1.7,1.5,1,1.1,1,1.2,1.6,1.5,1.6,1.5,1.3,1.3,1.3,1.2,1.4,1.2,1,1.3,1.2,1.3,1.3,1.1,1.3,2.5,1.9,2.1,1.8,2.2,2.1,1.7,1.8,1.8,2.5,2,1.9,2.1,2,2.4,2.3,1.8,2.2,2.3,1.5,2.3,2,2,1.8,2.1,1.8,1.8,1.8,2.1,1.6,1.9,2,2.2,1.5,1.4,2.3,2.4,1.8,1.8,2.1,2.4,2.3,1.9,2.3,2.5,2.3,1.9,2,2.3,1.8],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica"]],"container":"<table class=\"compact\">\n  <thead>\n    <tr>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tBp","buttons":["csv","excel"],"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 0, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 1, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 2, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 3, 1, 3, ',', '.');\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div id="htmlwidget-430adea167d89bc63c56" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-430adea167d89bc63c56">{"x":{"filter":"none","extensions":["Buttons"],"data":[[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5,7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7,6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1,3.7,3.4,3,3,4,4.4,3.9,3.5,3.8,3.8,3.4,3.7,3.6,3.3,3.4,3,3.4,3.5,3.4,3.2,3.1,3.4,4.1,4.2,3.1,3.2,3.5,3.6,3,3.4,3.5,2.3,3.2,3.5,3.8,3,3.8,3.2,3.7,3.3,3.2,3.2,3.1,2.3,2.8,2.8,3.3,2.4,2.9,2.7,2,3,2.2,2.9,2.9,3.1,3,2.7,2.2,2.5,3.2,2.8,2.5,2.8,2.9,3,2.8,3,2.9,2.6,2.4,2.4,2.7,2.7,3,3.4,3.1,2.3,3,2.5,2.6,3,2.6,2.3,2.7,3,2.9,2.9,2.5,2.8,3.3,2.7,3,2.9,3,3,2.5,2.9,2.5,3.6,3.2,2.7,3,2.5,2.8,3.2,3,3.8,2.6,2.2,3.2,2.8,2.8,2.7,3.3,3.2,2.8,3,2.8,3,2.8,3.8,2.8,2.8,2.6,3,3.4,3.1,3,3.1,3.1,3.1,2.7,3.2,3.3,3,2.5,3,3.4,3],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5,1.5,1.6,1.4,1.1,1.2,1.5,1.3,1.4,1.7,1.5,1.7,1.5,1,1.7,1.9,1.6,1.6,1.5,1.4,1.6,1.6,1.5,1.5,1.4,1.5,1.2,1.3,1.4,1.3,1.5,1.3,1.3,1.3,1.6,1.9,1.4,1.6,1.4,1.5,1.4,4.7,4.5,4.9,4,4.6,4.5,4.7,3.3,4.6,3.9,3.5,4.2,4,4.7,3.6,4.4,4.5,4.1,4.5,3.9,4.8,4,4.9,4.7,4.3,4.4,4.8,5,4.5,3.5,3.8,3.7,3.9,5.1,4.5,4.5,4.7,4.4,4.1,4,4.4,4.6,4,3.3,4.2,4.2,4.2,4.3,3,4.1,6,5.1,5.9,5.6,5.8,6.6,4.5,6.3,5.8,6.1,5.1,5.3,5.5,5,5.1,5.3,5.5,6.7,6.9,5,5.7,4.9,6.7,4.9,5.7,6,4.8,4.9,5.6,5.8,6.1,6.4,5.6,5.1,5.6,6.1,5.6,5.5,4.8,5.4,5.6,5.1,5.1,5.9,5.7,5.2,5,5.2,5.4,5.1],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1,0.2,0.2,0.1,0.1,0.2,0.4,0.4,0.3,0.3,0.3,0.2,0.4,0.2,0.5,0.2,0.2,0.4,0.2,0.2,0.2,0.2,0.4,0.1,0.2,0.2,0.2,0.2,0.1,0.2,0.2,0.3,0.3,0.2,0.6,0.4,0.3,0.2,0.2,0.2,0.2,1.4,1.5,1.5,1.3,1.5,1.3,1.6,1,1.3,1.4,1,1.5,1,1.4,1.3,1.4,1.5,1,1.5,1.1,1.8,1.3,1.5,1.2,1.3,1.4,1.4,1.7,1.5,1,1.1,1,1.2,1.6,1.5,1.6,1.5,1.3,1.3,1.3,1.2,1.4,1.2,1,1.3,1.2,1.3,1.3,1.1,1.3,2.5,1.9,2.1,1.8,2.2,2.1,1.7,1.8,1.8,2.5,2,1.9,2.1,2,2.4,2.3,1.8,2.2,2.3,1.5,2.3,2,2,1.8,2.1,1.8,1.8,1.8,2.1,1.6,1.9,2,2.2,1.5,1.4,2.3,2.4,1.8,1.8,2.1,2.4,2.3,1.9,2.3,2.5,2.3,1.9,2,2.3,1.8],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica"]],"container":"<table class=\"compact\">\n  <thead>\n    <tr>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tBp","buttons":["csv","excel"],"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 0, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 1, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 2, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 3, 1, 3, ',', '.');\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 
 ---
 
-## FAQ
+## FAQ <i class="fas  fa-question-circle fa-pull-right "></i>
 
 &lt;blockquote&gt;
 How do I start a new slide? 
 &lt;/blockquote&gt;
 
 Using three dashes at the start of a new line &lt;code&gt;---&lt;/code&gt;
-
-&lt;br&gt;
 
 --
 
@@ -320,6 +323,15 @@ I have three dashes but it's not starting a new slide.
 &lt;/blockquote&gt;
 
 The three dashes need to be on their own line with **no spaces after them**
+
+--
+
+&lt;blockquote&gt;
+I'm giving my presentation but the text is too small. HELP!
+&lt;/blockquote&gt;
+
+By default remark.js disables browser based zooming. I've found and modified a hack to re-enable it, but it's not perfect. [`remark-zoom.js`](https://github.com/William-Yeh/remark-zoom) I'm also open to increasing the default font size - need to test it out on a range of displays.
+
 
 ---
 background-image: url("assets/title-image1.jpg")
@@ -371,7 +383,7 @@ We can do this with white, .brand-red[Sydney master brand red], .brand-blue[Sydn
 
 --
 
-To really make text stand out we can just use `**text**` like **this** 
+To make text stand out we can use standard markdown `**text**` like **this** 
 or `.bold[this]` .bold[this].
 
 You can string together these formats, e.g. `.blue[.bold[...]]` 
@@ -390,7 +402,7 @@ class: center, middle
 ---
 class: sydney-yellow
 
-## Two columns!
+## Two columns! <i class="fas  fa-columns fa-pull-right "></i>
 
 .pull-left[
 
@@ -495,6 +507,7 @@ class: middle, bottom
 background-image: url("assets/USydLogo.svg")
 background-size: 50%
 background-position: 90% 10%
+
 
 This slide starts with 
 
@@ -740,6 +753,119 @@ background-color: #0148A4
 
 ---
 
+## Font sizes
+
+.pull-left[
+
+.pull-left[
+.font10[.font10]
+.font20[.font20]
+.font30[.font30]
+.font40[.font40]
+.font50[.font50]
+.font60[.font60]
+.font70[.font70]
+.font80[.font80]
+.font90[.font90]
+Standard
+.font110[.font110]
+.font120[.font120]
+.font130[.font130]
+.font140[.font140]
+.font150[.font150]
+.font160[.font160]
+.font170[.font170]
+.font180[.font180]
+.font190[.font190]
+.font200[.font200]
+
+]
+
+.pull-right[
+
+.code10[`.code10[]`]
+.code20[`.code20[]`]
+.code30[`.code30[]`]
+.code40[`.code40[]`]
+.code50[`.code50[]`]
+.code60[`.code60[]`]
+.code70[`.code70[]`]
+.code80[`.code80[]`]
+.code90[`.code90[]`]
+`standard`
+.code110[`.code110[]`]
+.code120[`.code120[]`]
+.code130[`.code130[]`]
+.code140[`.code140[]`]
+.code150[`.code150[]`]
+.code160[`.code160[]`]
+.code170[`.code170[]`]
+.code180[`.code180[]`]
+.code190[`.code190[]`]
+.code200[`.code200[]`]
+
+]
+
+]
+
+.pull-right[
+
+### `\(\LaTeX\)` style
+
+Operates on all text: inline code, code chunks and regular text.
+
+.Large[.Large `.Large[]` 144%]
+
+.large[.large `.large[]` 120%]
+
+.small[.small shrinks to 90% works on `inline code` as well as code chunks
+
+
+```r
+rnorm(2)
+```
+
+```
+## [1] -0.6281195  1.1257248
+```
+
+]
+
+.footnotesize[.footnotesize 80%] .scriptsize[.scriptsize 70%] .tiny[.tiny 60%]
+
+
+]
+
+
+---
+
+## Equations
+
+MathJax
+
+Equation numbering
+
+Referencing equations \eqref{LindCond}
+
+Link behaves strangely.
+
+---
+
+## Central limit theorem `\(\LaTeX\)`
+
+
+Let `\(X_{1}, X_{2},\ldots\)` be independent random variables with characteristic functions `\(\phi_{1},\phi_{2},\ldots\)` and distribution functions `\(F_{1},F_{2},\ldots\)` and let `\(\mathbb{E} X_{i}=0\)` and `\(\mathbb{E} X_{i}^{2}=\sigma_{i}^{2}&lt;\infty\)`, `\(i=1,2,\ldots\)`.
+
+Write `\(S_{n} = \sum_{i=1}^{n}X_{i}\)` and `\(s_{n}=\textrm{Var}(S_{n}) = \sum_{i=1}^{n}\sigma^{2}_{i}\)`.  Let
+`\begin{align}
+L_{n}(\varepsilon) &amp; = s^{-2}_{n}\sum_{i=1}^{n}\mathbb{E}\big[ X_{i}^{2}\mathbb{I}\big(|X_{i}|&gt;\varepsilon s_{n}\big)\big] \nonumber \\
+&amp; = s_{n}^{-2}\sum_{i=1}^{n}\int_{|x|&gt;\varepsilon s_{n}}x^{2}dF_{n}(x)
+\end{align}`
+The _Lindeberg condition_ states:
+`$$\begin{equation}\text{For all } \varepsilon&gt;0, \quad L_{n}(\varepsilon)\rightarrow0\quad \text{ as }n\rightarrow\infty.\label{LindCond}\end{equation}$$`
+If `\(\mathbb{E}|X_{1}|^{3}&lt;\infty\)` and `\(s_{n}^{-3}\sum_{i=1}^{n}\mathbb{E}|X_{i}^{3}|\rightarrow 0\)` as `\(n\rightarrow\infty\)` then Lindeberg's condition holds.  This condition under which the Lindeberg's condition holds is known as Liapounov's condition \eqref{LindCond}.
+
+.footnote[The inline MathJax is for some reason intrinsically linked to inline code, so if you have a background colour for inline code, it will be the same for the inline MathJax.]
 
 ---
 
@@ -884,6 +1010,7 @@ background-position: 5% 95%
 ]]
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="assets/remark-zoom.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
