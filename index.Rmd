@@ -11,7 +11,7 @@ output:
     includes:
       in_header: "assets/mathjax-equation-numbers.html"
     nature:
-      beforeInit: "assets/remark-zoom.js"
+      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
@@ -19,6 +19,17 @@ output:
       navigation:
         scroll: false # disable slide transitions by scrolling
 ---
+
+```{r, load_refs, echo=FALSE, cache=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'authoryear', 
+           style = "markdown",
+           hyperlink = FALSE, 
+           dashed = FALSE)
+myBib <- ReadBib("assets/example.bib", check = FALSE)
+```
 
 ## Installing `r icon::fa("download",pull = "right")`
 
@@ -28,37 +39,46 @@ The **xaringan** package is on CRAN, but I recommend installing the development 
 devtools::install_github('yihui/xaringan')
 ```
 
+.pull-left[
 You will also need two other CSS files for the custom University of Sydney styling:
 
 - `sydney-fonts.css`
 - `sydney.css`
-
+]
+.pull-right[
 If you want the University Logo to show up on the title slide, you'll also need
 
 - `USydLogo-black.svg`
-
-in the same folder as your CSS files.
+]
 
 These are available in the assets folder of the GitHub code repository [`r icon::fa("github")` `garthtarr/sydney_xaringan`](http://github.com/garthtarr/sydney_xaringan/assets)
 
-To make things easy to get started, I recommend downloading a copy of the `sydney_xaringan` repo [`r icon::fa("file-archive")`](https://github.com/garthtarr/sydney_xaringan/archive/master.zip) and starting by customising the example file in there. 
+To make things easy to get started, I recommend downloading a copy of the `sydney_xaringan` repo [`r icon::fa("file-archive")`](https://github.com/garthtarr/sydney_xaringan/archive/master.zip) and make changes to the template. 
+
+
+---
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
+background-size: 250px
+background-position: 50% 75%
+
+## xaringan
+
+- Press `h` or `?` to see the possible ninjutsu you can use in remark.js.
+
+- You can see all the goodies like this (hint press `p`).
+
+- Check out more in-depth tutorial [here](https://slides.yihui.name/xaringan/#1)
+
 
 ---
 
 ## Why xaringan/remark.js? `r icon::fa("check-circle", pull = "right")`
 
-- I was a big **ioslides** fan
-
 - Printing (in Google Chrome) is a lot more reliable for xaringan/remark.js
-
 - The customisation of the CSS and using it is a lot easier in xaringan/remark.js
-
 - You almost never need to write any manual HTML chunks (e.g. `<div style="text-align: center;"></div>`)
-
 - With remark.js' Markdown, you can add arbitrary CSS classes to elements using syntax `.className[elements]`, which is very handy compared to `<span class="className"></span>`
-
 - You can write slide notes under three question marks `???`. These notes are only displayed in the presentation mode, and only the speaker can see these notes. 
-
 - The keyboard shortcuts: press keys like `P` (presentation mode), `C` (clone slides to a new window, useful for presentation mode), `B` (black out), `M` (mirror the slide), and `H` (help), etc.
 
 More: [yihui.name/en/2017/08/why-xaringan-remark-js/](https://yihui.name/en/2017/08/why-xaringan-remark-js/)
@@ -79,10 +99,7 @@ More: [yihui.name/en/2017/08/why-xaringan-remark-js/](https://yihui.name/en/2017
 
 ## Content boxes `r icon::fa("box", pull = "right")`
 
-.content-box-blue[This is a `.content-box-blue[]` chunk. Content boxes are pretty flexible and can include lists, for example:
-
-- point 1
-- point 2 
+.content-box-blue[This is a `.content-box-blue[]` chunk.
 
 ]
 
@@ -90,20 +107,12 @@ More: [yihui.name/en/2017/08/why-xaringan-remark-js/](https://yihui.name/en/2017
 
 If you have just a few words, it only highlights the words:
 
-.pull-left[
-.content-box-army[`.content-box-army[]`]
 
-.content-box-yellow[`.content-box-yellow[]`]
-]
-.pull-right[
-.content-box-red[`.content-box-red[]`]
-
-.content-box-purple[`.content-box-purple[]`]
-]
+.content-box-army[`.content-box-army[]`] .content-box-yellow[`.content-box-yellow[]`] .content-box-red[`.content-box-red[]`] .content-box-purple[`.content-box-purple[]`]
 
 --
 
-If the text includes a new line character, or spans multiple lines, you get a 100% width box.  I've used `.columns-2[]` it's 100% of the column width.
+If the text includes a new line character, you get a 100% width box.  I've used `.columns-2[]` it's 100% of the column width.
 
 .columns-2[
 .content-box-gray[
@@ -118,12 +127,10 @@ If the text includes a new line character, or spans multiple lines, you get a 10
 
 ## Quotes `r icon::fa("quote-right", pull = "right")`
 
-We can include **block quotes** using
-
+We can include **block quotes** using<br>
 `<blockquote>Quote goes here</blockquote>` 
 
-or
-
+or<br>
 `> Quote goes here`
 
 .pull-left[
@@ -135,12 +142,10 @@ Statistics is the grammar of science.
 
 > It is not the mountain we conquer 
 > but ourselves.
->
 > .right[-- <cite>Edmund Hillary</cite>]
-
 ]
 
-.pull-right[.small[
+.pull-right[.code70[
 
 ```
 <blockquote>
@@ -151,9 +156,9 @@ Statistics is the grammar of science.
 
 
 
+
 > It is not the mountain we conquer 
 > but ourselves.
->
 > .right[-- <cite>Edmund Hillary</cite>]
 ```
 
@@ -182,19 +187,20 @@ Statistics is the grammar of science.
 
 ]
 
+.footnote[
+[1] Footnotes are not automatic.  In the text use `<sup>1</sup>` or `.fn[1]`
+
+[2] At the end of the slide `.footnote[[1] Text associated with footnote 1.]`
+]
+
 
 
 --
 
 .pull-right[
+To get an incremental slide use two dashes `--` on a new line with no trailing white space. If the dashes aren't on their own line or there's a white space after it won't work.
 
-#### Incrementing
-
-To get an incremental slide use two dashes `--` on a new line with no trailing white space.
-
-If the dashes aren't on their own line or there's a white space after it won't work.
-
-.small[.content-box-purple[
+.font80[.content-box-purple[
 The two dash increments don't work inside class calls.  For example, you can't have an increment in a  `.pull-right[...]` block or in a `.columns-2[...]` block as the dashes are not considered to be special in the markdown processing when they're inside one of these blocks.
 ]]
 
@@ -206,19 +212,12 @@ The two dash increments don't work inside class calls.  For example, you can't h
 
 
 
-.footnote[
-[1] Footnotes are not automatic.  In the text use `<sup>1</sup>` or `.fn[1]`
-
-[2] At the end of the slide `.footnote[[1] Text associated with footnote 1.]`
-]
 
 ---
 
 ## Icons `r icon::fa("exclamation", pull = "right")`
 
-Perhaps the easiest way to include icons in your xaringan presentations is through the **icon** package.
-
-The **icon** package lets you include [font awesome](http://fontawesome.io), [academicons](http://jpswalsh.github.io/academicons/) and [ionicons](http://ionicons.com) into R Markdown documents.
+Perhaps the easiest way to include icons in your xaringan presentations is through the **icon** package. The **icon** package lets you include [font awesome](http://fontawesome.io), [academicons](http://jpswalsh.github.io/academicons/) and [ionicons](http://ionicons.com) into R Markdown documents.
 
 It's not yet on CRAN, so install it using 
 
@@ -256,8 +255,7 @@ For more info see [the `r icon::fa("github")` repo](https://github.com/ropenscil
 ]
 
 ---
-class: code75
-
+class: font90
 
 ## Data tables `r icon::fa("table", pull = "right")`
 
@@ -450,8 +448,8 @@ library("tidyverse")
 cars %>% 
   ggplot(aes(x = dist, y = speed)) + 
   geom_point() + 
-{{ geom_smooth(method = 'lm', 
-             formula = y ~ poly(x, 2))}} + # highlighted lines use {{...}}
+{{ geom_smooth(method = 'lm', # highlighted using {{...}}
+             formula = y ~ poly(x, 2))}} + 
   theme_bw(base_size = 24) + 
   labs(y = "Speed (mph)", x = "Stopping distance (ft)")
 ```
@@ -591,11 +589,13 @@ class: sydney-yellow
 
 ## Title slide image
 
+.small[
 I don't have a good solution for the title slide image.  I considered hard coding it to look for a file called `title-image.jpg` in the same folder as the `sydney.css` file. This is possible and if this file is missing, it's no problem, it just won't show an image.  The image would be hardcoded to be stretched the full height of the title slide and to only take up 50% of the width.  But I decided this was less than optimal.
 
 In the longer term, I'd like to make this more general, being able to specify the file path in the yaml along with the size and position.  I'd also like to be able to specify the background colour.  But I have no idea if this is technically feasible or not.
 
 In the iterim, you can specify `seal: false` in the yaml to disable the default title slide and create your own.  For example:
+]
 
 .code70[
 
@@ -680,14 +680,17 @@ output:
   xaringan::moon_reader:
     css: ["default", "assets/sydney-fonts.css", "assets/sydney.css"]
     self_contained: false # if true, fonts will be stored locally
-    seal: false 
+    seal: true # show a title slide with YAML information
+    includes:
+      in_header: "assets/mathjax-equation-numbers.html"
     nature:
+      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
       ratio: '4:3' # alternatives '16:9' or '4:3' or others e.g. 13:9
       navigation:
-        scroll: false
+        scroll: false # disable slide transitions by scrolling
 ---
 class: title-slide
 background-image: url("assets/USydLogo-white.svg"), url("assets/title-image1.jpg")
@@ -773,7 +776,20 @@ I've also enabled an alternate approach, that operates on all text: inline code,
 
 .small[.small `.small[]` 90%]
 
-.footnotesize[.footnotesize 80%] .scriptsize[.scriptsize 70%] .tiny[.tiny 60%]
+.footnotesize[.footnotesize `.footnotesize[]` 80%] .scriptsize[.scriptsize `.scriptsize[]` 70%] .tiny[.tiny `.tiny[]` 60%]
+
+]
+
+
+---
+
+## Font sizes
+
+This is normal sized and coloured text. With a normal size code and output:
+
+```{r}
+rnorm(2)
+```
 
 .blue[.small[This blue text is in a `.blue[.small[...]]` chunk. Everything is shrunk to 90% including the `inline code` as well as code chunks and their output:
 
@@ -783,20 +799,17 @@ rnorm(2)
 
 ]]
 
-]
-
-
 ---
+class: columns-2
 
 ## Equations
 
-MathJax is supported out of the box.  You can put inline equations inside dollar signs, e.g. `$\alpha + \beta$` renders as $\alpha + \beta$.  
 
-Display style works with double dollar signs: 
+MathJax is supported out of the box.  You can put inline equations inside dollar signs, e.g. `$\alpha + \beta$` renders as $\alpha + \beta$.   Display style works with double dollar signs: 
 
-<span>`$`</span><span>`$`</span>`\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i`<span>`$`</span><span>`$`</span>
+<span>`$`</span><span>`$`</span>`\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i`<span>`$`</span><span>`$`</span>
 $$\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i$$
-For multi-line equations you can use <span>`\`</span>`begin{align} ... `</span>`\`</span>`end{align}`
+For multi-line equations you can use <span>`\`</span>`begin{align} ...  `</span>`\`</span>`end{align}`
 \begin{align}
 \bar{X} & = X_1 + X_2 + \ldots + X_n \nonumber \\
  & = \frac{1}{n}\sum_{i=1}^nX_i \label{good-eq}
@@ -805,21 +818,24 @@ Note the equation number! We can reference it in the usual way, using <span>`\`<
 
 ---
 
-Equation numbering isn't part of the standard xaringan package but I've included it with the sydney theme.  This is enabled with the inclusion of the `in_header` line in the YAML with reference to the `mathjax-equation-numbers.html` which needs to be in an appropriate location.
+## Equation numbering
+
+Equation numbering isn't part of the standard xaringan package but I've included it with the Sydney theme.  This is enabled with the inclusion of the `in_header` line in the YAML with reference to the file `mathjax-equation-numbers.html` which needs to be in an appropriate location.
 
 ```
 output:
   xaringan::moon_reader:
     includes:
-      in_header: "assets/mathjax-equation-numbers.html"
+*      in_header: "assets/mathjax-equation-numbers.html"
 ```
 
-Referencing equations \eqref{LindCond}
 
-### Issues
+.content-box-red[
+The generated equation reference link \eqref{good-eq} takes you back to the first slide.  I've tried to fix this, but didn't get anywhere.  Solution: just don't click the link.  I'd also like to remove the link colour, but I've had no luck doing that either.  I've asked about this on [StackOverflow](https://stackoverflow.com/questions/50384848/disable-mathjax-equation-reference-link-in-xaringan-slides).
+]
 
-1. The inline MathJax is for some reason intrinsically linked to inline code, so if you have a background colour for inline code, it will be the same for the inline MathJax.  I've reported this as an issue on [GitHub](https://github.com/yihui/xaringan/issues/137).
-1. The generated equation reference link \eqref{good-eq} takes you back to the first slide.  I've tried to fix this, but didn't get anywhere.  Solution: just don't click the link.  I'd also like to remove the link colour, but I've had no luck doing that either.  I've asked about this on [StackOverflow](https://stackoverflow.com/questions/50384848/disable-mathjax-equation-reference-link-in-xaringan-slides).
+
+
 
 ---
 
@@ -855,26 +871,93 @@ If $\mathbb{E}|X_{1}|^{3}<\infty$ and $s_{n}^{-3}\sum_{i=1}^{n}\mathbb{E}|X_{i}^
 
 ]
 
-.pull-right[.footnotesize[
-
+.pull-right[.code70[.font80[
 ```{r}
-knitr::kable(iris[1:10, 1:4], format = "html")
+knitr::kable(iris[1:10, 1:3], format = "html")
 ```
-
-]]
+]]]
 
 ---
-background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
-background-size: 100px
-background-position: 90% 8%
 
-# xaringan
+## Citations and references `r icon::fa("book", pull="right")`
 
-- Press `h` or `?` to see the possible ninjutsu you can use in remark.js.
+.pull-left[
+Xaringan doesn't support bibliographies in the usual markdown way (i.e. specifying a bibtex file in the yaml).
 
-- You can see all the goodies like this (hint press `p`).
+It is possible to cite sources from a `.bib` file using the **RefManageR** package.  To do this, specify the `BibOptions()`:
 
-- Check out more in-depth tutorial [here](https://slides.yihui.name/xaringan/#1)
+.small[
+```{r, eval = FALSE}
+library(RefManageR)
+BibOptions(
+  check.entries = FALSE, 
+  bib.style = "authoryear", 
+  cite.style = "authoryear", 
+  style = "markdown",
+  hyperlink = FALSE, 
+  dashed = FALSE)
+{{myBib = ReadBib("myBib.bib")}}
+```
+]
+]
+
+
+.pull-right[
+
+
+
+Make sure you update the highlighted line.
+
+Then you can cite any entry from your `.bib` file inline using `Citet()`, `Citep()`, `AutoCite()`, etc. (see [RefManageR](https://github.com/ropensci/RefManageR)). 
+
+
+- `r Citet(myBib,"Tarr:2016csda")`
+- `r Citep(myBib,"Tarr:2016csda")`
+
+]
+
+---
+
+## Reference list
+
+
+To generate your bibliography, use the `PrintBibliography()` function inside a knitr chunk with options `results='asis', echo=FALSE`. The function will search the entire `.Rmd` document for your citations and include them in the output. 
+
+```{r, results = "asis", echo=FALSE}
+PrintBibliography(myBib)
+```
+
+If you have a long list of references, and want to split them over multiple slides, you can use the `start` and `end` arguments to the `PrintBibliography()` function.  E.g.
+
+.small[
+`PrintBibliography(bib, start=1, end=7)`
+]
+
+---
+
+## Embedding tweets
+.pull-left[
+1. Get the link to embed the tweet from twitter.
+
+2. Paste it into your slides.
+
+3. Make sure the highlighted code from below is is in your YAML
+
+.footnote[.small[
+```
+output:
+  xaringan::moon_reader:
+    nature:
+*      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
+```
+]]
+]
+
+.pull-right[
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Finally finished documenting the xaringan pkg for Rmd/remark.js-based slides w/ another weekend <a href="https://t.co/1mkJYj13WR">https://t.co/1mkJYj13WR</a> Now I can sleep well <a href="https://t.co/k6hj6xDrwF">pic.twitter.com/k6hj6xDrwF</a></p>&mdash; Yihui Xie (@xieyihui) <a href="https://twitter.com/xieyihui/status/808418548829847552?ref_src=twsrc%5Etfw">December 12, 2016</a></blockquote>
+]
+
+
 
 ---
 class: sydney-blue

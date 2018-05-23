@@ -2,13 +2,10 @@
  Slide margins and spacings
  ***********/
 .remark-slide-content {
-  padding: 25px;
-  /* could be custom modified:
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  */
+  padding-top: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 25px;
 }
 /* 
 To specify the margin of the first title h1
@@ -29,13 +26,7 @@ To specify the margin of the first title h1
   margin-top: 5px;
   margin-bottom: 10px;
 }
-/* change the line spread for readability
-   and so that inline code highlighting 
-   doesn't cover text on the line above */
-.remark-slide-content p, 
-.remark-slide-content li {
-  line-height: 1.5;
-}
+
 
 /*************************
   Custom classes 
@@ -130,19 +121,16 @@ a {
   column-gap: 1em;
 }
 
-/************************************
- * Template-independent CSS code for 
- * formatting xaringan presentations
- ************************************/
-
-.footnote {
-  position: absolute;
-  bottom: 0;
-  padding-right: 8em; /* to avoid the page numbering */ 
-  font-size: 70%;
+.columns-21 {
+  -webkit-columns: 66%, 33%;
+  -moz-columns: 66%, 33%;
+  columns: 66%, 33%;
+  -webkit-column-gap: 1em;
+  -moz-column-gap: 1em;
+  column-gap: 1em;
 }
-.footnote .remark-code, 
-.footnote .remark-inline-code{ font-size: 80%; }
+
+
 
 /******************
  * Slide scrolling
@@ -160,7 +148,9 @@ slides > slide {
  
  /* inline code background */
  .remark-inline-code {
-  background: #F5F5F5; /* lighter */
+   /* until the link between code and mathjax 
+   is broken, we need to use transparent */
+  background: transparent; /* #F5F5F5; /* lighter */
   /* background: #e7e8e2; /* darker */
   border-radius: 3px;
   padding: 2px;
@@ -322,6 +312,7 @@ slides > slide {
   background-color: #e64626;
   text-align:left;
   vertical-align: top;
+  text-shadow: none;
   /*text-shadow: 0 0 5px #333;*/
   /*padding-left: 100px;   delete this for 4:3 aspect ratio */
 }
