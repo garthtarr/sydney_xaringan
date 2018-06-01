@@ -20,10 +20,17 @@ h1, h2, h3 {
   font-weight: normal;
 }
 
-.remark-code, 
-.remark-inline-code { 
+.remark-code, .remark-inline-code { 
   font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; 
-  font-size: 85%;
+  font-size: 95%;
+}
+
+.hljs-github .hljs {
+  overflow-y: auto;
+}
+
+.remark-code-line {
+  font-size: 80%;
 }
 
 
@@ -35,6 +42,8 @@ h1, h2, h3 {
 .remark-slide-content li {
   line-height: 1.4;
   /*font-size: 1.1em;*/
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
 }
 
 .footnote {
@@ -84,6 +93,7 @@ h1, h2, h3 {
 .font75 , .code75 .remark-code, .code75 .remark-inline-code{ font-size: 75%; }
 .font80 , .code80 .remark-code, .code80 .remark-inline-code{ font-size: 80%; }
 .font90 , .code90 .remark-code, .code90 .remark-inline-code{ font-size: 90%; }
+.font100, .code100 .remark-code, .code100 .remark-inline-code{ font-size: 100%; }
 .font110, .code110 .remark-code, .code110 .remark-inline-code{ font-size: 110%; }
 .font120, .code120 .remark-code, .code120 .remark-inline-code{ font-size: 120%; }
 .font130, .code130 .remark-code, .code130 .remark-inline-code{ font-size: 130%; }

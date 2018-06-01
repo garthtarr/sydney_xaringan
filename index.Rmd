@@ -127,12 +127,15 @@ If the text includes a new line character, you get a 100% width box.  I've used 
 
 ## Quotes `r icon::fa("quote-right", pull = "right")`
 
+.small[
 We can include **block quotes** using<br>
 `<blockquote>Quote goes here</blockquote>` 
 
 or<br>
 `> Quote goes here`
 
+or `.blockquote[Quote here]`
+]
 .pull-left[
 
 <blockquote>
@@ -140,13 +143,14 @@ Statistics is the grammar of science.
 .right[-- <cite>Karl Pearson</cite>]
 </blockquote>
 
-> It is not the mountain we conquer 
-> but ourselves.
-> .right[-- <cite>Edmund Hillary</cite>]
+.blockquote[Quote]
+
+> Quote quote  
 ]
 
-.pull-right[.code70[
 
+
+.pull-right[
 ```
 <blockquote>
 Statistics is the grammar of science. 
@@ -155,14 +159,63 @@ Statistics is the grammar of science.
 
 
 
+.blockquote[Quote]
 
 
-> It is not the mountain we conquer 
-> but ourselves.
-> .right[-- <cite>Edmund Hillary</cite>]
+
+> Quote quote
 ```
 
-]]
+]
+
+---
+
+## Statistical thinking
+
+Many of the data science slides have a quote-like box for **statistical thinking** or **aim**.
+.pull-left[
+.small[
+```
+.blockquote[
+### `r knitr::inline_expr('icon::fa("comment-dots")')` Statistical 
+thinking
+- Point 1
+]
+```
+]
+.blockquote[
+### `r icon::fa("comment-dots")` Statistical thinking
+- Point 1
+]
+
+]
+.pull-right[
+
+.small[
+```
+.blockquote[
+### `r knitr::inline_expr('icon::fa("location-arrow")')` Aim
+- Point 1
+]
+```
+]
+.blockquote[
+### `r icon::fa("location-arrow")` Aim
+- Point 1
+]
+
+]
+
+.footnote[
+This code is a bit easier to write than the old way of doing it.
+```
+<div class="thinkingbox"> 
+### <span class="fa-stack fa"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-location-arrow fa-stack-1x fa-inverse"></i></span> Aim
+- Point 1
+</div>
+```
+]
+
 
 ---
 
@@ -250,22 +303,24 @@ Inline expressions also work.
 
 <br>
 
-For more info see [the `r icon::fa("github")` repo](https://github.com/ropenscilabs/icon)
+For more info see [the `r icon::fa("github")` repo](https://github.com/ropenscilabs/icon).
 
 ]
 
 ---
-class: font90
 
 ## Data tables `r icon::fa("table", pull = "right")`
 
+.font80[
 ```{r, message = FALSE}
 library("DT"); library("dplyr")
 iris %>% 
   DT::datatable(class = "compact", rownames = FALSE, extensions = "Buttons",
-                options = list(dom = 'tBp', buttons = c("csv","excel"), pageLength = 10)) %>% 
+                options = list(dom = 'tBp', buttons = c("csv","excel"), 
+                               pageLength = 8)) %>% 
   DT::formatRound(1:4, digits = 1) 
 ```
+]
 
 ---
 
@@ -345,7 +400,7 @@ We can do this with white, .brand-red[Sydney master brand red], .brand-blue[Sydn
 --
 
 To make text stand out we can use standard markdown `**text**` like **this** 
-or `.bold[this]` .bold[this].
+or `.bold[this]` .bold[this].  Or italics using `_italic_` _italic_.
 
 You can string together these formats, e.g. `.blue[.bold[...]]` 
 to get .blue[.bold[blue and bold text]].
@@ -847,10 +902,10 @@ Let $X_{1}, X_{2},\ldots$ be independent random variables with characteristic fu
 Write $S_{n} = \sum_{i=1}^{n}X_{i}$ and $s_{n}=\textrm{Var}(S_{n}) = \sum_{i=1}^{n}\sigma^{2}_{i}$.  Let
 \begin{align}
 L_{n}(\varepsilon) & = s^{-2}_{n}\sum_{i=1}^{n}\mathbb{E}\big[ X_{i}^{2}\mathbb{I}\big(|X_{i}|>\varepsilon s_{n}\big)\big] \nonumber \\
-& = s_{n}^{-2}\sum_{i=1}^{n}\int_{|x|>\varepsilon s_{n}}x^{2}dF_{n}(x)
+& = s_{n}^{-2}\sum_{i=1}^{n}\int_{|x|>\varepsilon s_{n}}x^{2}\operatorname{d}F_{n}(x)
 \end{align}
 The _Lindeberg condition_ states:
-$$\begin{equation}\text{For all } \varepsilon>0, \quad L_{n}(\varepsilon)\rightarrow0\quad \text{ as }n\rightarrow\infty.\label{LindCond}\end{equation}$$
+$$\begin{equation}\text{for all } \varepsilon>0,\ L_{n}(\varepsilon)\rightarrow0 \text{ as }n\rightarrow\infty.\label{LindCond}\end{equation}$$
 If $\mathbb{E}|X_{1}|^{3}<\infty$ and $s_{n}^{-3}\sum_{i=1}^{n}\mathbb{E}|X_{i}^{3}|\rightarrow 0$ as $n\rightarrow\infty$ then Lindeberg's condition holds.  This condition under which the Lindeberg's condition holds is known as Liapounov's condition \eqref{LindCond}.
 
 
@@ -858,11 +913,14 @@ If $\mathbb{E}|X_{1}|^{3}<\infty$ and $s_{n}^{-3}\sum_{i=1}^{n}\mathbb{E}|X_{i}^
 
 # Tables
 
-- Tables are centered by default in **xaringan**. 
-- We can override this using `.pull-left[]` and `.pull-right[]` or `.columns-2[]`
-
-
 .pull-left[
+
+- Tables are centered by default in **xaringan**. 
+- We can override this using `.pull-left[]` and 
+  `.pull-right[]`
+
+
+
 
 |  This |  is |   a    |    table     |
 | :---- | :-- | -----: | :----------: |
@@ -871,11 +929,20 @@ If $\mathbb{E}|X_{1}|^{3}<\infty$ and $s_{n}^{-3}\sum_{i=1}^{n}\mathbb{E}|X_{i}^
 
 ]
 
-.pull-right[.code70[.font80[
-```{r}
-knitr::kable(iris[1:10, 1:3], format = "html")
+.pull-right[
+```{r, eval = FALSE}
+knitr::kable(iris[1:10, 1:4], 
+             format = "html")
 ```
-]]]
+.small[
+```{r, echo = FALSE}
+colnames(iris) = gsub(pattern = "\\.",
+                      replacement = " ", 
+                      colnames(iris))
+knitr::kable(iris[1:10, 1:4], format = "html")
+```
+]
+]
 
 ---
 

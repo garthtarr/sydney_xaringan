@@ -156,12 +156,15 @@ If the text includes a new line character, you get a 100% width box.  I've used 
 
 ## Quotes <i class="fas  fa-quote-right fa-pull-right "></i>
 
+.small[
 We can include **block quotes** using&lt;br&gt;
 `&lt;blockquote&gt;Quote goes here&lt;/blockquote&gt;` 
 
 or&lt;br&gt;
 `&gt; Quote goes here`
 
+or `.blockquote[Quote here]`
+]
 .pull-left[
 
 &lt;blockquote&gt;
@@ -169,13 +172,14 @@ Statistics is the grammar of science.
 .right[-- &lt;cite&gt;Karl Pearson&lt;/cite&gt;]
 &lt;/blockquote&gt;
 
-&gt; It is not the mountain we conquer 
-&gt; but ourselves.
-&gt; .right[-- &lt;cite&gt;Edmund Hillary&lt;/cite&gt;]
+.blockquote[Quote]
+
+&gt; Quote quote  
 ]
 
-.pull-right[.code70[
 
+
+.pull-right[
 ```
 &lt;blockquote&gt;
 Statistics is the grammar of science. 
@@ -184,14 +188,63 @@ Statistics is the grammar of science.
 
 
 
+.blockquote[Quote]
 
 
-&gt; It is not the mountain we conquer 
-&gt; but ourselves.
-&gt; .right[-- &lt;cite&gt;Edmund Hillary&lt;/cite&gt;]
+
+&gt; Quote quote
 ```
 
-]]
+]
+
+---
+
+## Statistical thinking
+
+Many of the data science slides have a quote-like box for **statistical thinking** or **aim**.
+.pull-left[
+.small[
+```
+.blockquote[
+### `r icon::fa("comment-dots")` Statistical 
+thinking
+- Point 1
+]
+```
+]
+.blockquote[
+### <i class="fas  fa-comment-dots "></i> Statistical thinking
+- Point 1
+]
+
+]
+.pull-right[
+
+.small[
+```
+.blockquote[
+### `r icon::fa("location-arrow")` Aim
+- Point 1
+]
+```
+]
+.blockquote[
+### <i class="fas  fa-location-arrow "></i> Aim
+- Point 1
+]
+
+]
+
+.footnote[
+This code is a bit easier to write than the old way of doing it.
+```
+&lt;div class="thinkingbox"&gt; 
+### &lt;span class="fa-stack fa"&gt;&lt;i class="fa fa-circle fa-stack-2x"&gt;&lt;/i&gt;&lt;i class="fa fa-location-arrow fa-stack-1x fa-inverse"&gt;&lt;/i&gt;&lt;/span&gt; Aim
+- Point 1
+&lt;/div&gt;
+```
+]
+
 
 ---
 
@@ -288,26 +341,28 @@ Inline expressions also work.
 
 &lt;br&gt;
 
-For more info see [the <i class="fab  fa-github "></i> repo](https://github.com/ropenscilabs/icon)
+For more info see [the <i class="fab  fa-github "></i> repo](https://github.com/ropenscilabs/icon).
 
 ]
 
 ---
-class: font90
 
 ## Data tables <i class="fas  fa-table fa-pull-right "></i>
 
+.font80[
 
 ```r
 library("DT"); library("dplyr")
 iris %&gt;% 
   DT::datatable(class = "compact", rownames = FALSE, extensions = "Buttons",
-                options = list(dom = 'tBp', buttons = c("csv","excel"), pageLength = 10)) %&gt;% 
+                options = list(dom = 'tBp', buttons = c("csv","excel"), 
+                               pageLength = 8)) %&gt;% 
   DT::formatRound(1:4, digits = 1) 
 ```
 
-<div id="htmlwidget-1291c980297f56b04e39" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1291c980297f56b04e39">{"x":{"filter":"none","extensions":["Buttons"],"data":[[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5,7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7,6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1,3.7,3.4,3,3,4,4.4,3.9,3.5,3.8,3.8,3.4,3.7,3.6,3.3,3.4,3,3.4,3.5,3.4,3.2,3.1,3.4,4.1,4.2,3.1,3.2,3.5,3.6,3,3.4,3.5,2.3,3.2,3.5,3.8,3,3.8,3.2,3.7,3.3,3.2,3.2,3.1,2.3,2.8,2.8,3.3,2.4,2.9,2.7,2,3,2.2,2.9,2.9,3.1,3,2.7,2.2,2.5,3.2,2.8,2.5,2.8,2.9,3,2.8,3,2.9,2.6,2.4,2.4,2.7,2.7,3,3.4,3.1,2.3,3,2.5,2.6,3,2.6,2.3,2.7,3,2.9,2.9,2.5,2.8,3.3,2.7,3,2.9,3,3,2.5,2.9,2.5,3.6,3.2,2.7,3,2.5,2.8,3.2,3,3.8,2.6,2.2,3.2,2.8,2.8,2.7,3.3,3.2,2.8,3,2.8,3,2.8,3.8,2.8,2.8,2.6,3,3.4,3.1,3,3.1,3.1,3.1,2.7,3.2,3.3,3,2.5,3,3.4,3],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5,1.5,1.6,1.4,1.1,1.2,1.5,1.3,1.4,1.7,1.5,1.7,1.5,1,1.7,1.9,1.6,1.6,1.5,1.4,1.6,1.6,1.5,1.5,1.4,1.5,1.2,1.3,1.4,1.3,1.5,1.3,1.3,1.3,1.6,1.9,1.4,1.6,1.4,1.5,1.4,4.7,4.5,4.9,4,4.6,4.5,4.7,3.3,4.6,3.9,3.5,4.2,4,4.7,3.6,4.4,4.5,4.1,4.5,3.9,4.8,4,4.9,4.7,4.3,4.4,4.8,5,4.5,3.5,3.8,3.7,3.9,5.1,4.5,4.5,4.7,4.4,4.1,4,4.4,4.6,4,3.3,4.2,4.2,4.2,4.3,3,4.1,6,5.1,5.9,5.6,5.8,6.6,4.5,6.3,5.8,6.1,5.1,5.3,5.5,5,5.1,5.3,5.5,6.7,6.9,5,5.7,4.9,6.7,4.9,5.7,6,4.8,4.9,5.6,5.8,6.1,6.4,5.6,5.1,5.6,6.1,5.6,5.5,4.8,5.4,5.6,5.1,5.1,5.9,5.7,5.2,5,5.2,5.4,5.1],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1,0.2,0.2,0.1,0.1,0.2,0.4,0.4,0.3,0.3,0.3,0.2,0.4,0.2,0.5,0.2,0.2,0.4,0.2,0.2,0.2,0.2,0.4,0.1,0.2,0.2,0.2,0.2,0.1,0.2,0.2,0.3,0.3,0.2,0.6,0.4,0.3,0.2,0.2,0.2,0.2,1.4,1.5,1.5,1.3,1.5,1.3,1.6,1,1.3,1.4,1,1.5,1,1.4,1.3,1.4,1.5,1,1.5,1.1,1.8,1.3,1.5,1.2,1.3,1.4,1.4,1.7,1.5,1,1.1,1,1.2,1.6,1.5,1.6,1.5,1.3,1.3,1.3,1.2,1.4,1.2,1,1.3,1.2,1.3,1.3,1.1,1.3,2.5,1.9,2.1,1.8,2.2,2.1,1.7,1.8,1.8,2.5,2,1.9,2.1,2,2.4,2.3,1.8,2.2,2.3,1.5,2.3,2,2,1.8,2.1,1.8,1.8,1.8,2.1,1.6,1.9,2,2.2,1.5,1.4,2.3,2.4,1.8,1.8,2.1,2.4,2.3,1.9,2.3,2.5,2.3,1.9,2,2.3,1.8],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica"]],"container":"<table class=\"compact\">\n  <thead>\n    <tr>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tBp","buttons":["csv","excel"],"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3]}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 0, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 1, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 2, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 3, 1, 3, ',', '.');\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div id="htmlwidget-ce479050050ae6e44c6a" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ce479050050ae6e44c6a">{"x":{"filter":"none","extensions":["Buttons"],"data":[[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5,7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7,6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1,3.7,3.4,3,3,4,4.4,3.9,3.5,3.8,3.8,3.4,3.7,3.6,3.3,3.4,3,3.4,3.5,3.4,3.2,3.1,3.4,4.1,4.2,3.1,3.2,3.5,3.6,3,3.4,3.5,2.3,3.2,3.5,3.8,3,3.8,3.2,3.7,3.3,3.2,3.2,3.1,2.3,2.8,2.8,3.3,2.4,2.9,2.7,2,3,2.2,2.9,2.9,3.1,3,2.7,2.2,2.5,3.2,2.8,2.5,2.8,2.9,3,2.8,3,2.9,2.6,2.4,2.4,2.7,2.7,3,3.4,3.1,2.3,3,2.5,2.6,3,2.6,2.3,2.7,3,2.9,2.9,2.5,2.8,3.3,2.7,3,2.9,3,3,2.5,2.9,2.5,3.6,3.2,2.7,3,2.5,2.8,3.2,3,3.8,2.6,2.2,3.2,2.8,2.8,2.7,3.3,3.2,2.8,3,2.8,3,2.8,3.8,2.8,2.8,2.6,3,3.4,3.1,3,3.1,3.1,3.1,2.7,3.2,3.3,3,2.5,3,3.4,3],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5,1.5,1.6,1.4,1.1,1.2,1.5,1.3,1.4,1.7,1.5,1.7,1.5,1,1.7,1.9,1.6,1.6,1.5,1.4,1.6,1.6,1.5,1.5,1.4,1.5,1.2,1.3,1.4,1.3,1.5,1.3,1.3,1.3,1.6,1.9,1.4,1.6,1.4,1.5,1.4,4.7,4.5,4.9,4,4.6,4.5,4.7,3.3,4.6,3.9,3.5,4.2,4,4.7,3.6,4.4,4.5,4.1,4.5,3.9,4.8,4,4.9,4.7,4.3,4.4,4.8,5,4.5,3.5,3.8,3.7,3.9,5.1,4.5,4.5,4.7,4.4,4.1,4,4.4,4.6,4,3.3,4.2,4.2,4.2,4.3,3,4.1,6,5.1,5.9,5.6,5.8,6.6,4.5,6.3,5.8,6.1,5.1,5.3,5.5,5,5.1,5.3,5.5,6.7,6.9,5,5.7,4.9,6.7,4.9,5.7,6,4.8,4.9,5.6,5.8,6.1,6.4,5.6,5.1,5.6,6.1,5.6,5.5,4.8,5.4,5.6,5.1,5.1,5.9,5.7,5.2,5,5.2,5.4,5.1],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1,0.2,0.2,0.1,0.1,0.2,0.4,0.4,0.3,0.3,0.3,0.2,0.4,0.2,0.5,0.2,0.2,0.4,0.2,0.2,0.2,0.2,0.4,0.1,0.2,0.2,0.2,0.2,0.1,0.2,0.2,0.3,0.3,0.2,0.6,0.4,0.3,0.2,0.2,0.2,0.2,1.4,1.5,1.5,1.3,1.5,1.3,1.6,1,1.3,1.4,1,1.5,1,1.4,1.3,1.4,1.5,1,1.5,1.1,1.8,1.3,1.5,1.2,1.3,1.4,1.4,1.7,1.5,1,1.1,1,1.2,1.6,1.5,1.6,1.5,1.3,1.3,1.3,1.2,1.4,1.2,1,1.3,1.2,1.3,1.3,1.1,1.3,2.5,1.9,2.1,1.8,2.2,2.1,1.7,1.8,1.8,2.5,2,1.9,2.1,2,2.4,2.3,1.8,2.2,2.3,1.5,2.3,2,2,1.8,2.1,1.8,1.8,1.8,2.1,1.6,1.9,2,2.2,1.5,1.4,2.3,2.4,1.8,1.8,2.1,2.4,2.3,1.9,2.3,2.5,2.3,1.9,2,2.3,1.8],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica"]],"container":"<table class=\"compact\">\n  <thead>\n    <tr>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tBp","buttons":["csv","excel"],"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100],"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 0, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 1, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 2, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 3, 1, 3, ',', '.');\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+]
 
 ---
 
@@ -387,7 +442,7 @@ We can do this with white, .brand-red[Sydney master brand red], .brand-blue[Sydn
 --
 
 To make text stand out we can use standard markdown `**text**` like **this** 
-or `.bold[this]` .bold[this].
+or `.bold[this]` .bold[this].  Or italics using `_italic_` _italic_.
 
 You can string together these formats, e.g. `.blue[.bold[...]]` 
 to get .blue[.bold[blue and bold text]].
@@ -843,7 +898,7 @@ rnorm(2)
 ```
 
 ```
-## [1] -1.4544140  0.7976004
+## [1] 0.8630758 0.1628374
 ```
 
 .blue[.small[This blue text is in a `.blue[.small[...]]` chunk. Everything is shrunk to 90% including the `inline code` as well as code chunks and their output:
@@ -854,7 +909,7 @@ rnorm(2)
 ```
 
 ```
-## [1] -0.9866236 -0.4149288
+## [1] -2.047111  1.293614
 ```
 
 ]]
@@ -875,7 +930,6 @@ For multi-line equations you can use &lt;span&gt;`\`&lt;/span&gt;`begin{align} .
  &amp; = \frac{1}{n}\sum_{i=1}^nX_i \label{good-eq}
 \end{align}`
 Note the equation number! We can reference it in the usual way, using &lt;span&gt;`\`&lt;/span&gt;`eqref{label}`, \eqref{good-eq}, or &lt;span&gt;`\`&lt;/span&gt;`ref{label}`, \ref{good-eq}.
-
 
 ---
 
@@ -908,10 +962,10 @@ Let `\(X_{1}, X_{2},\ldots\)` be independent random variables with characteristi
 Write `\(S_{n} = \sum_{i=1}^{n}X_{i}\)` and `\(s_{n}=\textrm{Var}(S_{n}) = \sum_{i=1}^{n}\sigma^{2}_{i}\)`.  Let
 `\begin{align}
 L_{n}(\varepsilon) &amp; = s^{-2}_{n}\sum_{i=1}^{n}\mathbb{E}\big[ X_{i}^{2}\mathbb{I}\big(|X_{i}|&gt;\varepsilon s_{n}\big)\big] \nonumber \\
-&amp; = s_{n}^{-2}\sum_{i=1}^{n}\int_{|x|&gt;\varepsilon s_{n}}x^{2}dF_{n}(x)
+&amp; = s_{n}^{-2}\sum_{i=1}^{n}\int_{|x|&gt;\varepsilon s_{n}}x^{2}\operatorname{d}F_{n}(x)
 \end{align}`
 The _Lindeberg condition_ states:
-`$$\begin{equation}\text{For all } \varepsilon&gt;0, \quad L_{n}(\varepsilon)\rightarrow0\quad \text{ as }n\rightarrow\infty.\label{LindCond}\end{equation}$$`
+`$$\begin{equation}\text{for all } \varepsilon&gt;0,\ L_{n}(\varepsilon)\rightarrow0 \text{ as }n\rightarrow\infty.\label{LindCond}\end{equation}$$`
 If `\(\mathbb{E}|X_{1}|^{3}&lt;\infty\)` and `\(s_{n}^{-3}\sum_{i=1}^{n}\mathbb{E}|X_{i}^{3}|\rightarrow 0\)` as `\(n\rightarrow\infty\)` then Lindeberg's condition holds.  This condition under which the Lindeberg's condition holds is known as Liapounov's condition \eqref{LindCond}.
 
 
@@ -919,11 +973,14 @@ If `\(\mathbb{E}|X_{1}|^{3}&lt;\infty\)` and `\(s_{n}^{-3}\sum_{i=1}^{n}\mathbb{
 
 # Tables
 
-- Tables are centered by default in **xaringan**. 
-- We can override this using `.pull-left[]` and `.pull-right[]` or `.columns-2[]`
-
-
 .pull-left[
+
+- Tables are centered by default in **xaringan**. 
+- We can override this using `.pull-left[]` and 
+  `.pull-right[]`
+
+
+
 
 |  This |  is |   a    |    table     |
 | :---- | :-- | -----: | :----------: |
@@ -932,18 +989,20 @@ If `\(\mathbb{E}|X_{1}|^{3}&lt;\infty\)` and `\(s_{n}^{-3}\sum_{i=1}^{n}\mathbb{
 
 ]
 
-.pull-right[.code70[.font80[
+.pull-right[
 
 ```r
-knitr::kable(iris[1:10, 1:3], format = "html")
+knitr::kable(iris[1:10, 1:4], 
+             format = "html")
 ```
-
+.small[
 &lt;table&gt;
  &lt;thead&gt;
   &lt;tr&gt;
-   &lt;th style="text-align:right;"&gt; Sepal.Length &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Sepal.Width &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Petal.Length &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Sepal Length &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Sepal Width &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Petal Length &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Petal Width &lt;/th&gt;
   &lt;/tr&gt;
  &lt;/thead&gt;
 &lt;tbody&gt;
@@ -951,55 +1010,66 @@ knitr::kable(iris[1:10, 1:3], format = "html")
    &lt;td style="text-align:right;"&gt; 5.1 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 3.5 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:right;"&gt; 4.9 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 3.0 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:right;"&gt; 4.7 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 3.2 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:right;"&gt; 4.6 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 3.1 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:right;"&gt; 5.0 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 3.6 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:right;"&gt; 5.4 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 3.9 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:right;"&gt; 4.6 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 3.4 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:right;"&gt; 5.0 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 3.4 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:right;"&gt; 4.4 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 2.9 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:right;"&gt; 4.9 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 3.1 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 1.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-]]]
+]
+]
 
 ---
 

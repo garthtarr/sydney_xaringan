@@ -1,10 +1,10 @@
 # usyd_xaringan
-University of Sydney theme for xaringan (remark.js)
 
+University of Sydney theme for xaringan (remark.js)
 
 Example and guide here: http://garthtarr.github.io/sydney_xaringan
 
-To get started you will need:
+To get started you will likely need:
 
 ```
 devtools::install_github('yihui/xaringan')
