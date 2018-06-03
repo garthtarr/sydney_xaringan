@@ -146,10 +146,10 @@ slides > slide {
 }
  ******************/
  
- /* inline code background */
- .remark-inline-code {
-   /* until the link between code and mathjax 
-   is broken, we need to use transparent */
+/* inline code background */
+.remark-inline-code {
+ /* until the link between code and mathjax 
+  is broken, we need to use transparent */
   background: transparent; /* #F5F5F5; /* lighter */
   /* background: #e7e8e2; /* darker */
   border-radius: 3px;

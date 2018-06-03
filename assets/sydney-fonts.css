@@ -33,6 +33,10 @@ h1, h2, h3 {
   font-size: 80%;
 }
 
+/* this is not ideal, but a response to the resising issues
+   discussed https://github.com/yihui/xaringan/issues/62 and
+   https://github.com/yihui/xaringan/issues/143  */
+.mjx-chtml{ font-size: 100% !important; }
 
 /* change the line spread for readability
    and so that inline code highlighting 
