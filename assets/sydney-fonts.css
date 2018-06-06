@@ -55,6 +55,14 @@ h1, h2, h3 {
   bottom: 0;
   padding-right: 8em; /* to avoid the page numbering */ 
 }
+/* footnote identifier use: .fn[1] */
+.fn {
+  vertical-align: super;
+  font-size: 60%;
+}
+.footnote {
+  font-size: 0.7em;
+}
 .remark-slide-content .footnote  p, 
 .remark-slide-content .footnote li {
   font-size: 0.7em!important;

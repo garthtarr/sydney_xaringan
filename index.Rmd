@@ -55,7 +55,6 @@ These are available in the assets folder of the GitHub code repository [`r icon:
 
 To make things easy to get started, I recommend downloading a copy of the `sydney_xaringan` repo [`r icon::fa("file-archive")`](https://github.com/garthtarr/sydney_xaringan/archive/master.zip) and make changes to the template. 
 
-
 ---
 background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
 background-size: 250px

@@ -32,11 +32,7 @@ To specify the margin of the first title h1
   Custom classes 
 **************************/
 
-/* footnote identifier use: .fn[1] */
-.fn {
-  vertical-align: super;
-  font-size: smaller;
-}
+
 /* use to position text at the bottom */
 .pull-down {
   position: absolute;
@@ -146,10 +142,10 @@ slides > slide {
 }
  ******************/
  
-/* inline code background */
-.remark-inline-code {
- /* until the link between code and mathjax 
-  is broken, we need to use transparent */
+ /* inline code background */
+ .remark-inline-code {
+   /* until the link between code and mathjax 
+   is broken, we need to use transparent */
   background: transparent; /* #F5F5F5; /* lighter */
   /* background: #e7e8e2; /* darker */
   border-radius: 3px;
