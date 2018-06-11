@@ -125,6 +125,13 @@ More: [yihui.name/en/2017/08/why-xaringan-remark-js/](https://yihui.name/en/2017
 
 ---
 
+## googleVis
+
+
+&lt;iframe src = "Geo.html" width = "100%" height = "90%" frameborder="0"&gt;&lt;/iframe&gt;
+
+---
+
 ## Content boxes <i class="fas  fa-box fa-pull-right "></i>
 
 .content-box-blue[This is a `.content-box-blue[]` chunk.
@@ -244,6 +251,180 @@ This code is a bit easier to write than the old way of doing it.
 ```
 ]
 
+---
+
+## Scrolling R output
+
+.scroll-output[
+I tend to think it's best to format the slide such that everything you want to show is visible, however there can be times when the R output is extensive, and it's not important that the whole lot is printable (i.e. won't appear on the pdf version of the slides), but you might want to be able to scroll down interactively during the presentation.  This can be done using the `.scroll-output[]` class.
+
+
+```r
+step(lm(Fertility~.,data = swiss))
+```
+
+```
+## Start:  AIC=190.69
+## Fertility ~ Agriculture + Examination + Education + Catholic + 
+##     Infant.Mortality
+## 
+##                    Df Sum of Sq    RSS    AIC
+## - Examination       1     53.03 2158.1 189.86
+## &lt;none&gt;                          2105.0 190.69
+## - Agriculture       1    307.72 2412.8 195.10
+## - Infant.Mortality  1    408.75 2513.8 197.03
+## - Catholic          1    447.71 2552.8 197.75
+## - Education         1   1162.56 3267.6 209.36
+## 
+## Step:  AIC=189.86
+## Fertility ~ Agriculture + Education + Catholic + Infant.Mortality
+## 
+##                    Df Sum of Sq    RSS    AIC
+## &lt;none&gt;                          2158.1 189.86
+## - Agriculture       1    264.18 2422.2 193.29
+## - Infant.Mortality  1    409.81 2567.9 196.03
+## - Catholic          1    956.57 3114.6 205.10
+## - Education         1   2249.97 4408.0 221.43
+```
+
+```
+## 
+## Call:
+## lm(formula = Fertility ~ Agriculture + Education + Catholic + 
+##     Infant.Mortality, data = swiss)
+## 
+## Coefficients:
+##      (Intercept)       Agriculture         Education          Catholic  
+##          62.1013           -0.1546           -0.9803            0.1247  
+## Infant.Mortality  
+##           1.0784
+```
+]
+
+---
+
+## Scrolling R output
+
+If you just want a section of the output to be scrollable (not the whole page).  You need to define how many lines you want the "box" to show.  There are classes for `.scroll-box-8[]` for 8 lines, `.scroll-box-10[]` for 10 lines, ... , `.scroll-box-20[]` for 20 lines.
+
+.pull-left[
+`.scroll-box-8[]` 
+.scroll-box-8[
+
+```r
+swiss[,1:3]
+```
+
+```
+##              Fertility Agriculture Examination
+## Courtelary        80.2        17.0          15
+## Delemont          83.1        45.1           6
+## Franches-Mnt      92.5        39.7           5
+## Moutier           85.8        36.5          12
+## Neuveville        76.9        43.5          17
+## Porrentruy        76.1        35.3           9
+## Broye             83.8        70.2          16
+## Glane             92.4        67.8          14
+## Gruyere           82.4        53.3          12
+## Sarine            82.9        45.2          16
+## Veveyse           87.1        64.5          14
+## Aigle             64.1        62.0          21
+## Aubonne           66.9        67.5          14
+## Avenches          68.9        60.7          19
+## Cossonay          61.7        69.3          22
+## Echallens         68.3        72.6          18
+## Grandson          71.7        34.0          17
+## Lausanne          55.7        19.4          26
+## La Vallee         54.3        15.2          31
+## Lavaux            65.1        73.0          19
+## Morges            65.5        59.8          22
+## Moudon            65.0        55.1          14
+## Nyone             56.6        50.9          22
+## Orbe              57.4        54.1          20
+## Oron              72.5        71.2          12
+## Payerne           74.2        58.1          14
+## Paysd'enhaut      72.0        63.5           6
+## Rolle             60.5        60.8          16
+## Vevey             58.3        26.8          25
+## Yverdon           65.4        49.5          15
+## Conthey           75.5        85.9           3
+## Entremont         69.3        84.9           7
+## Herens            77.3        89.7           5
+## Martigwy          70.5        78.2          12
+## Monthey           79.4        64.9           7
+## St Maurice        65.0        75.9           9
+## Sierre            92.2        84.6           3
+## Sion              79.3        63.1          13
+## Boudry            70.4        38.4          26
+## La Chauxdfnd      65.7         7.7          29
+## Le Locle          72.7        16.7          22
+## Neuchatel         64.4        17.6          35
+## Val de Ruz        77.6        37.6          15
+## ValdeTravers      67.6        18.7          25
+## V. De Geneve      35.0         1.2          37
+## Rive Droite       44.7        46.6          16
+## Rive Gauche       42.8        27.7          22
+```
+]]
+.pull-right[
+`.scroll-box-14[]` 
+.scroll-box-14[
+
+```r
+swiss[,1:3]
+```
+
+```
+##              Fertility Agriculture Examination
+## Courtelary        80.2        17.0          15
+## Delemont          83.1        45.1           6
+## Franches-Mnt      92.5        39.7           5
+## Moutier           85.8        36.5          12
+## Neuveville        76.9        43.5          17
+## Porrentruy        76.1        35.3           9
+## Broye             83.8        70.2          16
+## Glane             92.4        67.8          14
+## Gruyere           82.4        53.3          12
+## Sarine            82.9        45.2          16
+## Veveyse           87.1        64.5          14
+## Aigle             64.1        62.0          21
+## Aubonne           66.9        67.5          14
+## Avenches          68.9        60.7          19
+## Cossonay          61.7        69.3          22
+## Echallens         68.3        72.6          18
+## Grandson          71.7        34.0          17
+## Lausanne          55.7        19.4          26
+## La Vallee         54.3        15.2          31
+## Lavaux            65.1        73.0          19
+## Morges            65.5        59.8          22
+## Moudon            65.0        55.1          14
+## Nyone             56.6        50.9          22
+## Orbe              57.4        54.1          20
+## Oron              72.5        71.2          12
+## Payerne           74.2        58.1          14
+## Paysd'enhaut      72.0        63.5           6
+## Rolle             60.5        60.8          16
+## Vevey             58.3        26.8          25
+## Yverdon           65.4        49.5          15
+## Conthey           75.5        85.9           3
+## Entremont         69.3        84.9           7
+## Herens            77.3        89.7           5
+## Martigwy          70.5        78.2          12
+## Monthey           79.4        64.9           7
+## St Maurice        65.0        75.9           9
+## Sierre            92.2        84.6           3
+## Sion              79.3        63.1          13
+## Boudry            70.4        38.4          26
+## La Chauxdfnd      65.7         7.7          29
+## Le Locle          72.7        16.7          22
+## Neuchatel         64.4        17.6          35
+## Val de Ruz        77.6        37.6          15
+## ValdeTravers      67.6        18.7          25
+## V. De Geneve      35.0         1.2          37
+## Rive Droite       44.7        46.6          16
+## Rive Gauche       42.8        27.7          22
+```
+]]
 
 ---
 
@@ -359,8 +540,8 @@ iris %&gt;%
   DT::formatRound(1:4, digits = 1) 
 ```
 
-<div id="htmlwidget-28169710262d29f30265" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-28169710262d29f30265">{"x":{"filter":"none","extensions":["Buttons"],"data":[[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5,7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7,6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1,3.7,3.4,3,3,4,4.4,3.9,3.5,3.8,3.8,3.4,3.7,3.6,3.3,3.4,3,3.4,3.5,3.4,3.2,3.1,3.4,4.1,4.2,3.1,3.2,3.5,3.6,3,3.4,3.5,2.3,3.2,3.5,3.8,3,3.8,3.2,3.7,3.3,3.2,3.2,3.1,2.3,2.8,2.8,3.3,2.4,2.9,2.7,2,3,2.2,2.9,2.9,3.1,3,2.7,2.2,2.5,3.2,2.8,2.5,2.8,2.9,3,2.8,3,2.9,2.6,2.4,2.4,2.7,2.7,3,3.4,3.1,2.3,3,2.5,2.6,3,2.6,2.3,2.7,3,2.9,2.9,2.5,2.8,3.3,2.7,3,2.9,3,3,2.5,2.9,2.5,3.6,3.2,2.7,3,2.5,2.8,3.2,3,3.8,2.6,2.2,3.2,2.8,2.8,2.7,3.3,3.2,2.8,3,2.8,3,2.8,3.8,2.8,2.8,2.6,3,3.4,3.1,3,3.1,3.1,3.1,2.7,3.2,3.3,3,2.5,3,3.4,3],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5,1.5,1.6,1.4,1.1,1.2,1.5,1.3,1.4,1.7,1.5,1.7,1.5,1,1.7,1.9,1.6,1.6,1.5,1.4,1.6,1.6,1.5,1.5,1.4,1.5,1.2,1.3,1.4,1.3,1.5,1.3,1.3,1.3,1.6,1.9,1.4,1.6,1.4,1.5,1.4,4.7,4.5,4.9,4,4.6,4.5,4.7,3.3,4.6,3.9,3.5,4.2,4,4.7,3.6,4.4,4.5,4.1,4.5,3.9,4.8,4,4.9,4.7,4.3,4.4,4.8,5,4.5,3.5,3.8,3.7,3.9,5.1,4.5,4.5,4.7,4.4,4.1,4,4.4,4.6,4,3.3,4.2,4.2,4.2,4.3,3,4.1,6,5.1,5.9,5.6,5.8,6.6,4.5,6.3,5.8,6.1,5.1,5.3,5.5,5,5.1,5.3,5.5,6.7,6.9,5,5.7,4.9,6.7,4.9,5.7,6,4.8,4.9,5.6,5.8,6.1,6.4,5.6,5.1,5.6,6.1,5.6,5.5,4.8,5.4,5.6,5.1,5.1,5.9,5.7,5.2,5,5.2,5.4,5.1],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1,0.2,0.2,0.1,0.1,0.2,0.4,0.4,0.3,0.3,0.3,0.2,0.4,0.2,0.5,0.2,0.2,0.4,0.2,0.2,0.2,0.2,0.4,0.1,0.2,0.2,0.2,0.2,0.1,0.2,0.2,0.3,0.3,0.2,0.6,0.4,0.3,0.2,0.2,0.2,0.2,1.4,1.5,1.5,1.3,1.5,1.3,1.6,1,1.3,1.4,1,1.5,1,1.4,1.3,1.4,1.5,1,1.5,1.1,1.8,1.3,1.5,1.2,1.3,1.4,1.4,1.7,1.5,1,1.1,1,1.2,1.6,1.5,1.6,1.5,1.3,1.3,1.3,1.2,1.4,1.2,1,1.3,1.2,1.3,1.3,1.1,1.3,2.5,1.9,2.1,1.8,2.2,2.1,1.7,1.8,1.8,2.5,2,1.9,2.1,2,2.4,2.3,1.8,2.2,2.3,1.5,2.3,2,2,1.8,2.1,1.8,1.8,1.8,2.1,1.6,1.9,2,2.2,1.5,1.4,2.3,2.4,1.8,1.8,2.1,2.4,2.3,1.9,2.3,2.5,2.3,1.9,2,2.3,1.8],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica"]],"container":"<table class=\"compact\">\n  <thead>\n    <tr>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tBp","buttons":["csv","excel"],"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100],"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 0, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 1, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 2, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 3, 1, 3, ',', '.');\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div id="htmlwidget-83d0112eb86e8661c656" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-83d0112eb86e8661c656">{"x":{"filter":"none","extensions":["Buttons"],"data":[[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5,7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7,6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1,3.7,3.4,3,3,4,4.4,3.9,3.5,3.8,3.8,3.4,3.7,3.6,3.3,3.4,3,3.4,3.5,3.4,3.2,3.1,3.4,4.1,4.2,3.1,3.2,3.5,3.6,3,3.4,3.5,2.3,3.2,3.5,3.8,3,3.8,3.2,3.7,3.3,3.2,3.2,3.1,2.3,2.8,2.8,3.3,2.4,2.9,2.7,2,3,2.2,2.9,2.9,3.1,3,2.7,2.2,2.5,3.2,2.8,2.5,2.8,2.9,3,2.8,3,2.9,2.6,2.4,2.4,2.7,2.7,3,3.4,3.1,2.3,3,2.5,2.6,3,2.6,2.3,2.7,3,2.9,2.9,2.5,2.8,3.3,2.7,3,2.9,3,3,2.5,2.9,2.5,3.6,3.2,2.7,3,2.5,2.8,3.2,3,3.8,2.6,2.2,3.2,2.8,2.8,2.7,3.3,3.2,2.8,3,2.8,3,2.8,3.8,2.8,2.8,2.6,3,3.4,3.1,3,3.1,3.1,3.1,2.7,3.2,3.3,3,2.5,3,3.4,3],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5,1.5,1.6,1.4,1.1,1.2,1.5,1.3,1.4,1.7,1.5,1.7,1.5,1,1.7,1.9,1.6,1.6,1.5,1.4,1.6,1.6,1.5,1.5,1.4,1.5,1.2,1.3,1.4,1.3,1.5,1.3,1.3,1.3,1.6,1.9,1.4,1.6,1.4,1.5,1.4,4.7,4.5,4.9,4,4.6,4.5,4.7,3.3,4.6,3.9,3.5,4.2,4,4.7,3.6,4.4,4.5,4.1,4.5,3.9,4.8,4,4.9,4.7,4.3,4.4,4.8,5,4.5,3.5,3.8,3.7,3.9,5.1,4.5,4.5,4.7,4.4,4.1,4,4.4,4.6,4,3.3,4.2,4.2,4.2,4.3,3,4.1,6,5.1,5.9,5.6,5.8,6.6,4.5,6.3,5.8,6.1,5.1,5.3,5.5,5,5.1,5.3,5.5,6.7,6.9,5,5.7,4.9,6.7,4.9,5.7,6,4.8,4.9,5.6,5.8,6.1,6.4,5.6,5.1,5.6,6.1,5.6,5.5,4.8,5.4,5.6,5.1,5.1,5.9,5.7,5.2,5,5.2,5.4,5.1],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1,0.2,0.2,0.1,0.1,0.2,0.4,0.4,0.3,0.3,0.3,0.2,0.4,0.2,0.5,0.2,0.2,0.4,0.2,0.2,0.2,0.2,0.4,0.1,0.2,0.2,0.2,0.2,0.1,0.2,0.2,0.3,0.3,0.2,0.6,0.4,0.3,0.2,0.2,0.2,0.2,1.4,1.5,1.5,1.3,1.5,1.3,1.6,1,1.3,1.4,1,1.5,1,1.4,1.3,1.4,1.5,1,1.5,1.1,1.8,1.3,1.5,1.2,1.3,1.4,1.4,1.7,1.5,1,1.1,1,1.2,1.6,1.5,1.6,1.5,1.3,1.3,1.3,1.2,1.4,1.2,1,1.3,1.2,1.3,1.3,1.1,1.3,2.5,1.9,2.1,1.8,2.2,2.1,1.7,1.8,1.8,2.5,2,1.9,2.1,2,2.4,2.3,1.8,2.2,2.3,1.5,2.3,2,2,1.8,2.1,1.8,1.8,1.8,2.1,1.6,1.9,2,2.2,1.5,1.4,2.3,2.4,1.8,1.8,2.1,2.4,2.3,1.9,2.3,2.5,2.3,1.9,2,2.3,1.8],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica"]],"container":"<table class=\"compact\">\n  <thead>\n    <tr>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tBp","buttons":["csv","excel"],"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100],"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 0, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 1, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 2, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 3, 1, 3, ',', '.');\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 ]
 
 ---
@@ -556,7 +737,7 @@ cars %&gt;%
   labs(y = "Speed (mph)", x = "Stopping distance (ft)")
 ```
 
-&lt;img src="index_files/figure-html/unnamed-chunk-6-1.png" width="864" style="display: block; margin: auto;" /&gt;
+&lt;img src="index_files/figure-html/unnamed-chunk-9-1.png" width="864" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -897,7 +1078,7 @@ rnorm(2)
 ```
 
 ```
-## [1] -0.9973796  0.2275179
+## [1]  0.03181414 -1.49604344
 ```
 
 .blue[.small[This blue text is in a `.blue[.small[...]]` chunk. Everything is shrunk to 90% including the `inline code` as well as code chunks and their output:
@@ -908,7 +1089,7 @@ rnorm(2)
 ```
 
 ```
-## [1] -1.0413059 -0.9821543
+## [1] 0.58035721 0.06293062
 ```
 
 ]]

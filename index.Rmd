@@ -96,6 +96,19 @@ More: [yihui.name/en/2017/08/why-xaringan-remark-js/](https://yihui.name/en/2017
 
 ---
 
+## googleVis
+
+Embedded by exporting to HTML and including as an iframe.
+
+```{r gvisMergeExample, results='asis', echo=FALSE, message=FALSE}
+library(googleVis)
+Geo <- gvisGeoChart(Exports, locationvar='Country', colorvar='Profit') 
+cat(Geo$html$chart, file="Geo.html")
+```
+<iframe src = "Geo.html" width = "100%" height = "90%" frameborder="0"></iframe>
+
+---
+
 ## Content boxes `r icon::fa("box", pull = "right")`
 
 .content-box-blue[This is a `.content-box-blue[]` chunk.
@@ -215,6 +228,38 @@ This code is a bit easier to write than the old way of doing it.
 ```
 ]
 
+---
+
+## Scrolling R output
+
+.scroll-output[
+I tend to think it's best to format the slide such that everything you want to show is visible, however there can be times when the R output is extensive, and it's not important that the whole lot is printable (i.e. won't appear on the pdf version of the slides), but you might want to be able to scroll down interactively during the presentation.  This can be done using the `.scroll-output[]` class.
+
+```{r}
+step(lm(Fertility~.,data = swiss))
+```
+]
+
+---
+
+## Scrolling R output
+
+If you just want a section of the output to be scrollable (not the whole page).  You need to define how many lines you want the "box" to show.  There are classes for `.scroll-box-8[]` for 8 lines, `.scroll-box-10[]` for 10 lines, ... , `.scroll-box-20[]` for 20 lines.
+
+.pull-left[
+`.scroll-box-8[]` 
+.scroll-box-8[
+```{r}
+swiss[,1:3]
+```
+]]
+.pull-right[
+`.scroll-box-14[]` 
+.scroll-box-14[
+```{r}
+swiss[,1:3]
+```
+]]
 
 ---
 
