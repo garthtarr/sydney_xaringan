@@ -120,7 +120,9 @@ cat(Geo$html$chart, file="Geo.html")
 If you have just a few words, it only highlights the words:
 
 
-.content-box-army[`.content-box-army[]`] .content-box-yellow[`.content-box-yellow[]`] .content-box-red[`.content-box-red[]`] .content-box-purple[`.content-box-purple[]`]
+.content-box-army[`.content-box-army[]`] .content-box-yellow[`.content-box-yellow[]`]
+
+.content-box-red[`.content-box-red[]`] .content-box-purple[`.content-box-purple[]`]
 
 --
 
@@ -162,7 +164,7 @@ Statistics is the grammar of science.
 
 
 
-.pull-right[
+.pull-right[.small[
 ```
 <blockquote>
 Statistics is the grammar of science. 
@@ -178,7 +180,7 @@ Statistics is the grammar of science.
 > Quote quote
 ```
 
-]
+]]
 
 ---
 
