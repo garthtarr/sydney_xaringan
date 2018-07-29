@@ -724,7 +724,7 @@ background-image: url("assets/USydLogo.svg"), url("assets/title-image1.jpg")
 background-position: 10% 90%, 100% 50%
 background-size: 160px, 100% 100%
 
-# .text-shadow[.black[Manual title slide (tital-image.1)]]
+# .text-shadow[.black[Manual title slide (title-image.1)]]
 
 ## Subtitle
 
@@ -927,14 +927,6 @@ output:
     includes:
 *      in_header: "assets/mathjax-equation-numbers.html"
 ```
-
-
-.content-box-red[
-The generated equation reference link \eqref{good-eq} takes you back to the first slide.  I've tried to fix this, but didn't get anywhere.  Solution: just don't click the link.  I'd also like to remove the link colour, but I've had no luck doing that either.  I've asked about this on [StackOverflow](https://stackoverflow.com/questions/50384848/disable-mathjax-equation-reference-link-in-xaringan-slides).
-]
-
-
-
 
 ---
 
