@@ -1,8 +1,8 @@
 ---
 title: "Xaringan"
-subtitle: "A theme for the <br>University of Sydney"
+subtitle: "A theme for the University of Sydney"
 author: "Garth Tarr"
-date: "15 May 2018"
+date: "5 November 2018"
 output:
   xaringan::moon_reader:
     css: ["default", "assets/sydney-fonts.css", "assets/sydney.css"]
@@ -15,7 +15,7 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-      ratio: '4:3' # alternatives '16:9' or '4:3' or others e.g. 13:9
+      ratio: '16:9' # alternatives '16:9' or '4:3' or others e.g. 13:9
       navigation:
         scroll: false # disable slide transitions by scrolling
 ---
@@ -657,7 +657,7 @@ class: sydney-blue
 ---
 class: sydney-red
 
-## Title for sydney-red class
+## .white[Title for sydney-red class]
 
 text here
 
@@ -877,7 +877,11 @@ I've also enabled an alternate approach, that operates on all text: inline code,
 
 .small[.small `.small[]` 90%]
 
-.footnotesize[.footnotesize `.footnotesize[]` 80%] .scriptsize[.scriptsize `.scriptsize[]` 70%] .tiny[.tiny `.tiny[]` 60%]
+.footnotesize[.footnotesize `.footnotesize[]` 80%] 
+
+.scriptsize[.scriptsize `.scriptsize[]` 70%] 
+
+.tiny[.tiny `.tiny[]` 60%]
 
 ]
 

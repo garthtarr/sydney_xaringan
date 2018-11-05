@@ -382,7 +382,7 @@ slides > slide {
 
 /* H2 fonts */
 .title-slide h2 {
-  color: black;
+  color: black !important; /* first of type is master brand red */
   font-size: 35px;
   padding-left: 20px;
   padding-bottom: 10px;
