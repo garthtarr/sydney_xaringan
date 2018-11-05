@@ -368,12 +368,11 @@ slides > slide {
   /*padding-left: 100px;   delete this for 4:3 aspect ratio */
 }
 
-/* H1 fonts */
+/* H1 fonts  */
 .title-slide h1 {
   color: #ffffff;
   font-weight: normal;
   font-size: 45px;
-  line-height: 0.05;
   padding: 20px;
   text-align: left;
   vertical-align: middle;
