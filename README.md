@@ -1,4 +1,4 @@
-# Sydney `xaringan`
+# Sydney xaringan
 
 University of Sydney theme for xaringan (remark.js)
 
