@@ -1,4 +1,4 @@
-# usyd_xaringan
+# Sydney xaringan
 
 University of Sydney theme for xaringan (remark.js)
 
@@ -12,5 +12,5 @@ devtools::install_github("ropenscilabs/icon")
 install.packages("RefManageR")
 install.packages("DT")
 install.packages("tidyverse")
-install.packages("icon")
+devtools::install_github("ropenscilabs/icon")
 ```
