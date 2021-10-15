@@ -7,10 +7,11 @@ Example and guide here: http://garthtarr.github.io/sydney_xaringan
 To get started you will likely need:
 
 ```
-devtools::install_github('yihui/xaringan')
-devtools::install_github("ropenscilabs/icon")
+install.packages('xaringan')
+remotes::install_github("mitchelloharawild/icons")
 install.packages("RefManageR")
 install.packages("DT")
 install.packages("tidyverse")
-devtools::install_github("ropenscilabs/icon")
 ```
+
+For further customisation you might consider the [xaringanExtra](https://github.com/gadenbuie/xaringanExtra) package.
