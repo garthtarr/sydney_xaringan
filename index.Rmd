@@ -20,7 +20,7 @@ output:
         scroll: false # disable slide transitions by scrolling
 ---
 
-```{r, load_refs, echo=FALSE, cache=FALSE}
+```{r, load_refs, echo=FALSE, cache=FALSE, message=FALSE}
 library(RefManageR)
 BibOptions(check.entries = FALSE, 
            bib.style = "authoryear", 
@@ -29,11 +29,17 @@ BibOptions(check.entries = FALSE,
            hyperlink = FALSE, 
            dashed = FALSE)
 myBib <- ReadBib("assets/example.bib", check = FALSE)
+top_icon = function(x) {
+  icons::icon_style(
+    icons::fontawesome(x),
+    position = "fixed", top = 10, right = 10
+  )
+}
 ```
 
-## Installing `r icon::fa("download",pull = "right")`
+## Installing `r top_icon("download")`
 
-The **xaringan** package is on CRAN, but I recommend installing the development release from `r icon::fa("github")`
+The **xaringan** package is on CRAN, but I recommend installing the development release from `r icons::fontawesome("github")`
 
 ```{r, eval = FALSE}
 devtools::install_github('yihui/xaringan')
@@ -51,9 +57,9 @@ If you want the University Logo to show up on the title slide, you'll also need
 - `USydLogo-black.svg`
 ]
 
-These are available in the assets folder of the GitHub code repository [`r icon::fa("github")` `garthtarr/sydney_xaringan`](http://github.com/garthtarr/sydney_xaringan/assets)
+These are available in the assets folder of the GitHub code repository [`r icons::fontawesome("github")` `garthtarr/sydney_xaringan`](http://github.com/garthtarr/sydney_xaringan/assets)
 
-To make things easy to get started, I recommend downloading a copy of the `sydney_xaringan` repo [`r icon::fa("file-archive")`](https://github.com/garthtarr/sydney_xaringan/archive/master.zip) and make changes to the template. 
+To make things easy to get started, I recommend downloading a copy of the `sydney_xaringan` repo [`r icons::fontawesome("file-archive")`](https://github.com/garthtarr/sydney_xaringan/archive/master.zip) and make changes to the template. 
 
 ---
 background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
@@ -71,7 +77,7 @@ background-position: 50% 75%
 
 ---
 
-## Why xaringan/remark.js? `r icon::fa("check-circle", pull = "right")`
+## Why xaringan/remark.js? `r top_icon("check-circle")`
 
 - Printing (in Google Chrome) is a lot more reliable for xaringan/remark.js
 - The customisation of the CSS and using it is a lot easier in xaringan/remark.js
@@ -84,7 +90,7 @@ More: [yihui.name/en/2017/08/why-xaringan-remark-js/](https://yihui.name/en/2017
 
 ---
 
-## Why **not** xaringan/remark.js? `r icon::fa("times-circle", pull = "right")`
+## Why **not** xaringan/remark.js? `r top_icon("times-circle")`
 
 - It is difficult to generate self-contained HTML presentation files. I.e. you'll need access to the internet for it to work properly.  However, the quality of the print to pdf means that you'll have excellent pdf backup slides but it will lack animation, gifs, etc.
 
@@ -100,7 +106,7 @@ More: [yihui.name/en/2017/08/why-xaringan-remark-js/](https://yihui.name/en/2017
 
 Embedded by exporting to HTML and including as an iframe.
 
-```{r gvisMergeExample, results='asis', echo=FALSE, message=FALSE}
+```{r gvisMergeExample, results='asis', echo=FALSE, message=FALSE, warning = FALSE}
 library(googleVis)
 Geo <- gvisGeoChart(Exports, locationvar='Country', colorvar='Profit') 
 cat(Geo$html$chart, file="Geo.html")
@@ -109,7 +115,7 @@ cat(Geo$html$chart, file="Geo.html")
 
 ---
 
-## Content boxes `r icon::fa("box", pull = "right")`
+## Content boxes `r top_icon("box")`
 
 .content-box-blue[This is a `.content-box-blue[]` chunk.
 
@@ -139,7 +145,7 @@ If the text includes a new line character, you get a 100% width box.  I've used 
 
 ---
 
-## Quotes `r icon::fa("quote-right", pull = "right")`
+## Quotes `r top_icon("quote-right")`
 
 .small[
 We can include **block quotes** using<br>
@@ -191,14 +197,14 @@ Many of the data science slides have a quote-like box for **statistical thinking
 .small[
 ```
 .blockquote[
-### `r knitr::inline_expr('icon::fa("comment-dots")')` Statistical 
+### `r knitr::inline_expr('icons::fontawesome("comment-dots")')` Statistical 
 thinking
 - Point 1
 ]
 ```
 ]
 .blockquote[
-### `r icon::fa("comment-dots")` Statistical thinking
+### `r icons::fontawesome("comment-dots")` Statistical thinking
 - Point 1
 ]
 
@@ -208,13 +214,13 @@ thinking
 .small[
 ```
 .blockquote[
-### `r knitr::inline_expr('icon::fa("location-arrow")')` Aim
+### `r knitr::inline_expr('icons::fontawesome("location-arrow")')` Aim
 - Point 1
 ]
 ```
 ]
 .blockquote[
-### `r icon::fa("location-arrow")` Aim
+### `r icons::fontawesome("location-arrow")` Aim
 - Point 1
 ]
 
@@ -265,15 +271,15 @@ swiss[,1:3]
 
 ---
 
-## Lists, increments and footnotes`r icon::fa("list", pull = "right")`
+## Lists, increments and footnotes`r top_icon("list")`
 
 .pull-left[
 
 - Unordered lists<sup>1</sup>
-  - can be created using "-"
-  - and they can be nested using 2 or 4 space.fn[2]
-      - deep nested 
-  - original nesting level
+- can be created using "-"
+- and they can be nested using 2 or 4 space.fn[2]
+- deep nested 
+- original nesting level
 
 
 ### Ordered list
@@ -314,14 +320,14 @@ The two dash increments don't work inside class calls.  For example, you can't h
 
 ---
 
-## Icons `r icon::fa("exclamation", pull = "right")`
+## Icons `r top_icon("exclamation")`
 
-Perhaps the easiest way to include icons in your xaringan presentations is through the **icon** package. The **icon** package lets you include [font awesome](http://fontawesome.io), [academicons](http://jpswalsh.github.io/academicons/) and [ionicons](http://ionicons.com) into R Markdown documents.
+Perhaps the easiest way to include icons in your xaringan presentations is through the [**icons** package](https://github.com/mitchelloharawild/icons). The **icons** package lets you include [font awesome](http://fontawesome.io) icons and others into R Markdown documents.
 
-It's not yet on CRAN, so install it using 
+It's not on CRAN, but you can install it using 
 
 ```{r, eval = FALSE}
-devtools::install_github("ropenscilabs/icon")
+remotes::install_github("mitchelloharawild/icons")
 ```
 
 --
@@ -329,9 +335,8 @@ devtools::install_github("ropenscilabs/icon")
 .pull-left[
 
 ```{r}
-icon::fa("rocket")
-icon::fa("spinner", size = 2, 
-         animate = "spin")
+icons::fontawesome("rocket")
+icons::fontawesome("spinner")
 ```
 
 ]
@@ -342,20 +347,20 @@ icon::fa("spinner", size = 2,
 
 Inline expressions also work. 
 
-`r icon::fa("bell")` created using 
+`r icons::fontawesome("bell")` created using 
 
-`` `r knitr::inline_expr('icon::fa("bell")')` ``
+`` `r knitr::inline_expr('icons::fontawesome("bell")')` ``
 
 
 <br>
 
-For more info see [the `r icon::fa("github")` repo](https://github.com/ropenscilabs/icon).
+For more info see [the `r icons::fontawesome("github")` repo](https://github.com/mitchelloharawild/icons).
 
 ]
 
 ---
 
-## Data tables `r icon::fa("table", pull = "right")`
+## Data tables `r top_icon("table")`
 
 .font80[
 ```{r, message = FALSE}
@@ -370,7 +375,7 @@ iris %>%
 
 ---
 
-## FAQ `r icon::fa("question-circle", pull = "right")`
+## FAQ `r top_icon("question-circle")`
 
 <blockquote>
 How do I start a new slide? 
@@ -464,7 +469,7 @@ class: center, middle
 ---
 class: sydney-yellow
 
-## Two columns! `r icon::fa("columns", pull = "right")`
+## Two columns! `r top_icon("columns")`
 
 .pull-left[
 
@@ -501,16 +506,16 @@ class: sydney-yellow
 
 ---
 
-## R code and highlighting `r icon::fa("r-project", pull = "right")`
+## R code and highlighting `r top_icon("r-project")`
 
 .pull-left[
 An example using a leading `*`:
 
-    ```r
-    if (TRUE) {
-    ** message("Very important!")
-    }
-    ```
+```r
+if (TRUE) {
+** message("Very important!")
+}
+```
 Output:
 ```r
 if (TRUE) {
@@ -524,11 +529,11 @@ This is invalid R code, so it is a plain fenced code block that is not executed.
 .pull-right[
 An example using `{{}}`:
 
-    `r ''````{r tidy=FALSE}
-    if (TRUE) {
-    *{{ message("Very important!") }}
-    }
-    ```
+`r ''````{r tidy=FALSE}
+if (TRUE) {
+*{{ message("Very important!") }}
+}
+```
 Output:
 ```{r tidy=FALSE}
 if (TRUE) {
@@ -542,17 +547,17 @@ It is valid R code so you can run it.
 
 ---
 
-## R code and plot output `r icon::fa("r-project", pull = "right")`
+## R code and plot output `r top_icon("r-project")`
 
 ```{r, fig.height=4.5, fig.width=12, fig.retina=2, fig.align='center', message=FALSE, warning=FALSE}
 library("tidyverse")
 cars %>% 
-  ggplot(aes(x = dist, y = speed)) + 
-  geom_point() + 
+ggplot(aes(x = dist, y = speed)) + 
+geom_point() + 
 {{ geom_smooth(method = 'lm', # highlighted using {{...}}
-             formula = y ~ poly(x, 2))}} + 
-  theme_bw(base_size = 24) + 
-  labs(y = "Speed (mph)", x = "Stopping distance (ft)")
+formula = y ~ poly(x, 2))}} + 
+theme_bw(base_size = 24) + 
+labs(y = "Speed (mph)", x = "Stopping distance (ft)")
 ```
 
 
@@ -778,20 +783,20 @@ subtitle: "A theme for the <br>University of Sydney"
 author: "Garth Tarr"
 date: "15 May 2018"
 output:
-  xaringan::moon_reader:
-    css: ["default", "assets/sydney-fonts.css", "assets/sydney.css"]
-    self_contained: false # if true, fonts will be stored locally
-    seal: true # show a title slide with YAML information
-    includes:
-      in_header: "assets/mathjax-equation-numbers.html"
-    nature:
-      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
-      ratio: '4:3' # alternatives '16:9' or '4:3' or others e.g. 13:9
-      navigation:
-        scroll: false # disable slide transitions by scrolling
+xaringan::moon_reader:
+css: ["default", "assets/sydney-fonts.css", "assets/sydney.css"]
+self_contained: false # if true, fonts will be stored locally
+seal: true # show a title slide with YAML information
+includes:
+in_header: "assets/mathjax-equation-numbers.html"
+nature:
+beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
+highlightStyle: github
+highlightLines: true
+countIncrementalSlides: false
+ratio: '4:3' # alternatives '16:9' or '4:3' or others e.g. 13:9
+navigation:
+scroll: false # disable slide transitions by scrolling
 ---
 class: title-slide
 background-image: url("assets/USydLogo-white.svg"), url("assets/title-image1.jpg")
@@ -917,7 +922,7 @@ $$\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i$$
 For multi-line equations you can use <span>`\`</span>`begin{align} ...  `</span>`\`</span>`end{align}`
 \begin{align}
 \bar{X} & = X_1 + X_2 + \ldots + X_n \nonumber \\
- & = \frac{1}{n}\sum_{i=1}^nX_i \label{good-eq}
+& = \frac{1}{n}\sum_{i=1}^nX_i \label{good-eq}
 \end{align}
 Note the equation number! We can reference it in the usual way, using <span>`\`</span>`eqref{label}`, \eqref{good-eq}, or <span>`\`</span>`ref{label}`, \ref{good-eq}.
 
@@ -929,8 +934,8 @@ Equation numbering isn't part of the standard xaringan package but I've included
 
 ```
 output:
-  xaringan::moon_reader:
-    includes:
+xaringan::moon_reader:
+includes:
 *      in_header: "assets/mathjax-equation-numbers.html"
 ```
 
@@ -959,7 +964,7 @@ If $\mathbb{E}|X_{1}|^{3}<\infty$ and $s_{n}^{-3}\sum_{i=1}^{n}\mathbb{E}|X_{i}^
 
 - Tables are centered by default in **xaringan**. 
 - We can override this using `.pull-left[]` and 
-  `.pull-right[]`
+`.pull-right[]`
 
 
 
@@ -974,13 +979,13 @@ If $\mathbb{E}|X_{1}|^{3}<\infty$ and $s_{n}^{-3}\sum_{i=1}^{n}\mathbb{E}|X_{i}^
 .pull-right[
 ```{r, eval = FALSE}
 knitr::kable(iris[1:10, 1:4], 
-             format = "html")
+format = "html")
 ```
 .small[
 ```{r, echo = FALSE}
 colnames(iris) = gsub(pattern = "\\.",
-                      replacement = " ", 
-                      colnames(iris))
+replacement = " ", 
+colnames(iris))
 knitr::kable(iris[1:10, 1:4], format = "html")
 ```
 ]
@@ -988,7 +993,7 @@ knitr::kable(iris[1:10, 1:4], format = "html")
 
 ---
 
-## Citations and references `r icon::fa("book", pull="right")`
+## Citations and references `r top_icon("book")`
 
 .pull-left[
 Xaringan doesn't support bibliographies in the usual markdown way (i.e. specifying a bibtex file in the yaml).
@@ -999,12 +1004,12 @@ It is possible to cite sources from a `.bib` file using the **RefManageR** packa
 ```{r, eval = FALSE}
 library(RefManageR)
 BibOptions(
-  check.entries = FALSE, 
-  bib.style = "authoryear", 
-  cite.style = "authoryear", 
-  style = "markdown",
-  hyperlink = FALSE, 
-  dashed = FALSE)
+check.entries = FALSE, 
+bib.style = "authoryear", 
+cite.style = "authoryear", 
+style = "markdown",
+hyperlink = FALSE, 
+dashed = FALSE)
 {{myBib = ReadBib("myBib.bib")}}
 ```
 ]
@@ -1055,8 +1060,8 @@ If you have a long list of references, and want to split them over multiple slid
 .footnote[.small[
 ```
 output:
-  xaringan::moon_reader:
-    nature:
+xaringan::moon_reader:
+nature:
 *      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
 ```
 ]]
@@ -1079,19 +1084,19 @@ background-position: 5% 95%
 .pull-right[.pull-down[
 
 <a href="mailto:garth.tarr@sydney.edu.au">
-.white[`r icon::fa("paper-plane")` garth.tarr@sydney.edu.au]
+.white[`r icons::fontawesome("paper-plane")` garth.tarr@sydney.edu.au]
 </a>
 
 <a href="http://garthtarr.github.io/sydney_xaringan">
-.white[`r icon::fa("link")` garthtarr.github.io/sydney_xaringan]
+.white[`r icons::fontawesome("link")` garthtarr.github.io/sydney_xaringan]
 </a>
 
 <a href="http://twitter.com/garthtarr">
-.white[`r icon::fa("twitter")` @garthtarr]
+.white[`r icons::fontawesome("twitter")` @garthtarr]
 </a>
 
 <a href="http://github.com/garthtarr">
-.white[`r icon::fa("github")` @garthtarr]
+.white[`r icons::fontawesome("github")` @garthtarr]
 </a>
 
 <br><br><br>
