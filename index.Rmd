@@ -11,7 +11,7 @@ output:
     includes:
       in_header: "assets/mathjax-equation-numbers.html"
     nature:
-      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
+      beforeInit: ["assets/remark-zoom.js"]
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
@@ -790,7 +790,7 @@ seal: true # show a title slide with YAML information
 includes:
 in_header: "assets/mathjax-equation-numbers.html"
 nature:
-beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
+beforeInit: ["assets/remark-zoom.js"]
 highlightStyle: github
 highlightLines: true
 countIncrementalSlides: false
@@ -1047,31 +1047,6 @@ If you have a long list of references, and want to split them over multiple slid
 `PrintBibliography(bib, start=1, end=7)`
 ]
 
----
-
-## Embedding tweets
-.pull-left[
-1. Get the link to embed the tweet from twitter.
-
-2. Paste it into your slides.
-
-3. Make sure the highlighted code from below is is in your YAML
-
-.footnote[.small[
-```
-output:
-xaringan::moon_reader:
-nature:
-*      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
-```
-]]
-]
-
-.pull-right[
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Finally finished documenting the xaringan pkg for Rmd/remark.js-based slides w/ another weekend <a href="https://t.co/1mkJYj13WR">https://t.co/1mkJYj13WR</a> Now I can sleep well <a href="https://t.co/k6hj6xDrwF">pic.twitter.com/k6hj6xDrwF</a></p>&mdash; Yihui Xie (@xieyihui) <a href="https://twitter.com/xieyihui/status/808418548829847552?ref_src=twsrc%5Etfw">December 12, 2016</a></blockquote>
-]
-
-
 
 ---
 class: sydney-blue
@@ -1089,10 +1064,6 @@ background-position: 5% 95%
 
 <a href="http://garthtarr.github.io/sydney_xaringan">
 .white[`r icons::fontawesome("link")` garthtarr.github.io/sydney_xaringan]
-</a>
-
-<a href="http://twitter.com/garthtarr">
-.white[`r icons::fontawesome("twitter")` @garthtarr]
 </a>
 
 <a href="http://github.com/garthtarr">
